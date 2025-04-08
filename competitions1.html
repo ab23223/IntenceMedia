@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auckland Open 2025 | Karate Photography</title>
+  <link rel="stylesheet" href="/static/main.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Tomorrow&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:opsz,wght@8..144,500&display=swap');
+
+    /* General Reset */
+    body, h1, h2, h3, h4, p, ul {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body & Main layout */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      width: 100%;
+      background-image: url('https://prodcdn.sporty.co.nz/cms/3860/newsarticles/141795_wo.jpg');
+      background-size: cover; /* Ensures image fills the section */
+      background-position: center; /* Center the image */
+      text-align: center;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh; /* Full screen height */
+      overflow: hidden;
+    }
+
+    /* Navigation */
+
+    header nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      padding: 20px 20px;
+      margin-top: 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; /* So it can wrap on smaller screens */
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    .logo {
+      height: 110px; /* Adjust as needed */
+    }
+    .nav-links a {
+      color: black;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: lightgray;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-family: 'Play', sans-serif;
+    }
+
+    /* Main Content */
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Left Section (Image) */
+    .image-section {
+      flex-basis: 50%; /* Image takes up half of the screen */
+      height: 100%; /* Ensure image stretches the entire height */
+      overflow: hidden; /* Hide any overflow */
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Zoom effect */
+      object-position: center; /* Keep the center of the image focused */
+    }
+
+    /* Right Section (Text Content) */
+    .text-section {
+      flex-basis: 50%; /* Text area takes up the other half */
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      z-index: 2;
+    }
+
+    .text-section h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: black;
+    }
+
+    .text-section p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: black;
+    }
+
+    .text-section .price {
+      font-size: 1.5rem;
+      color: black;
+      margin-bottom: 1rem;
+      font-family:'Pathway Extreme';
+
+    }
+
+    .tagline {
+      font-weight: bold;
+      color: black;
+      margin-bottom: 1.5rem;
+      font-family:'Pathway Extreme';
+      font-size: 22px;
+    }
+    .description, .description1{
+      font-family: 'Source Sans 3';
+    }
+
+    .package-details{
+      font-family:'Pathway Extreme';
+      font-size: 22px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      background-color: #f5a623;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #d88d20;
+    }
+
+    /* New section under what's included */
+    .extra-info {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: black;
+    }
+
+    .extra-info ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .extra-info ul li {
+      padding: 0px 0;
+      font-size: 1rem;
+      font-family: 'Source Sans 3';
+      font-size: 19px;
+    }
+
+    .extra-info h4{
+      font-family: 'Source Sans 3';
+      padding-bottom: 1rem;
+      font-size: 19px;
+    }
+
+    .extra-info p{
+      font-family: 'Source Sans 3';
+      font-size: 19px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    footer a {
+      color: #f5a623;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+
+      .image-section, .text-section {
+        flex-basis: 100%;
+        margin-bottom: 2rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header nav {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+      }
+
+      header nav a {
+        font-size: 1rem;
+      }
+
+      .text-section h2 {
+        font-size: 2rem;
+      }
+
+      .text-section p, .tagline, .price {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <script>
+    function purchasePackage(packageName) {
+      const subject = encodeURIComponent("Photo Package Purchase Request");
+      const body = encodeURIComponent(`I would like to purchase the "${packageName}" package for Auckland Open 2025.`);
+      window.location.href = `mailto:ashton.balu2009@email.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Auckland Open 2025</h1>
+    <nav>
+      <img src="/static/INTEC MEDIA1.png" alt="Logo" class="logo" />
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="gallery">Gallery</a>
+        <a href="competitions">Competitions</a>
+      </div>
+    </nav>    
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Left Section (Image) -->
+    <div class="image-section">
+      <img src="https://images.squarespace-cdn.com/content/v1/659d99fddec69b620cf92ec0/f2397706-9387-4c08-97c3-7fe0b19b9fad/dsfg.png?format=1500w" alt="Event Image" />
+    </div>
+
+    <!-- Right Section (Text Content) -->
+    <div class="text-section">
+      <h2>Auckland Open 2025</h2>
+      <p class="price">$30</p>
+      <p class="tagline">Capture Your Best Moments at the AUSTRALIAN OPEN KARATE CHAMPIONSHIP! 🥋📸🎥</p>
+      <p class="description">Get professionally curated photos showcasing your intensity, skill, and dedication on the mat. Delivered straight to your email within 1/2 weeks, our high-quality story packs ensure you never miss a moment of your performance.</p>
+      <p class="description1">We highly recommend booking before the competition so we can properly track each athlete and provide the best possible coverage.</p>
+
+      <div class="package-details">
+        <h3>What's Included?</h3>
+      </div>
+    
+      <div class="extra-info">
+        <ul>
+          <li><span style="font-weight: 600;">📸 Capture Pack</span> - 30 high quality action shots</li>
+          <li>✅ Professionally edited photos</li>
+          <li>✅ High-resolution images, perfect for social media & prints</li>
+          <li>✅ If you only compete in 1 round, the number of photos may vary. If you compete in multiple rounds, we may include up to 100 images!</li>
+        </ul>
+
+        <h4>📢 No matter if you compete in Kata or Kumite, our media packs cover all styles and rounds you participate in! We ensure full coverage of your performance, so you can relive every moment with stunning photos and videos.</h4>
+        <p>Want to see our shots? Check out <a href="https://www.instagram.com/intencemedia" target="_blank">@intencemedia</a> on Instagram!</p>
+
+        <p>Secure your spot now and make sure your best moments are captured forever! 🔥</p>
+      </div>
+
+      <a href="#" class="btn" onclick="purchasePackage('Basic Package - $30'); return false;">Purchase</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Karate Photography. All rights reserved.</p>
+    <p>Contact: <a href="mailto:ashton.balu2009@email.com">ashton.balu2009@email.com</a></p>
+  </footer>
+
+</body>
+</html>

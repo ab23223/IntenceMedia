@@ -1,0 +1,108 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    position: relative;
+    background-color: #fff;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-top: -25px;
+  }
+  
+  /* Navigation */
+  header nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 0px 0px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* So it can wrap on smaller screens */
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .logo {
+    height: 110px; /* Adjust as needed */
+  }
+  .nav-links a {
+    color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+  }
+  
+  .nav-links a:hover {
+    color: lightgray;
+  }
+  
+  main {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .intro {
+    text-align: center;
+  }
+  
+  .intro h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  
+  .intro p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .highlight-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .highlight-images img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+  }
+  
+  .highlight-images img:hover {
+    transform: scale(1.03);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #999;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+  }
+  
+  @media (max-width: 600px) {
+    .highlight-images {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .highlight-images img {
+      width: 90%;
+    }
+  }
+  
