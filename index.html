@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intence Media | Karate Photography</title>
+  <style>
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    
+
+    header {
+      background-color: #fff;
+      width: 100%;
+      position: fixed; /* Make it stick to the top */
+      top: 0;
+      left: 0;
+      z-index: 999;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    header nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      height: 80px;
+    }
+
+    .nav-links a {
+      color: black;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: lightgray;
+    }
+
+    header h1{
+      font-size: 5rem;
+      visibility: hidden;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      font-size: 1em;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .highlight-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .highlight-images img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .highlight-images img:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #999;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 600px) {
+      .highlight-images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .highlight-images img {
+        width: 90%;
+      }
+    }
+
+    .hero-section {
+      margin-top: 100px; /* 👈 This adds space for the fixed header */
+      height: 100vh;
+      background-image: url('https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/j1sfphb9tbebb5zc7vap');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 40px;
+      box-sizing: border-box;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      background: transparent;         /* Remove gray fill */
+      border: 2px solid white;         /* Add white outline */
+      padding: 20px 30px;
+      border-radius: 12px;
+      text-align: right;
+    }
+    .hero-content h1,
+    .hero-content p {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+
+    .hero-content h1 {
+      font-size: 2.8em;
+      margin: 0;
+    }
+
+    .hero-content p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    .hero-content button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-content button:hover {
+      background-color: white;
+      color: black;
+    }
+
+
+    .hook-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      flex-wrap: wrap;
+      gap: 30px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .hook-section img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .hook-section img:hover {
+      transform: scale(1.05);
+    }
+
+    .hook-text {
+      max-width: 400px;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/IntenceMedia/"><img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Logo" class="logo" /></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="gallery">Gallery</a>
+        <a href="competitions">Competitions</a>
+      </div>
+    </nav>    
+  </header>
+  
+  <section class="hero-section">
+  <div class="hero-content">
+    <h1>Intence Media</h1>
+    <p>Karate Event Photography</p>
+    <button onclick="document.getElementById('hook-section').scrollIntoView({ behavior: 'smooth' });">Book Now!</button>
+  </div>
+</section>
+
+  <section style="margin-top: 40px; text-align: center;">
+    <h3>How It Works</h3>
+    <p>📅 Choose Your Competition</p>
+    <p>📸 Get Captured in Action</p>
+    <p>📩 Receive Professional Photos in 1–2 Weeks</p>
+  </section>
+
+  <section id="hook-section" class="hook-section">
+    <img src="https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/j1sfphb9tbebb5zc7vap" alt="Competition Action" onclick="window.location.href='/competitions'" />
+    <div class="hook-text">
+      <h2>Ready to get your moment captured?</h2>
+      <p>Click the image to see upcoming competitions and photo packages.</p>
+    </div>
+  </section>
+  
+  <main>
+    <section class="intro">
+      <h2>Sample Shots</h2>
+      <p>Professional photography for karate competitions. Affordable, Professional and Memorable.</p>
+      <div class="highlight-images">
+        <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Highlight 1" />
+        <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Highlight 2" />
+        <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Highlight 3" />
+      </div>
+    </section>
+  </main>
+
+  
+  <footer>
+    <p>&copy; 2025 Karate Event Photography</p>
+  </footer>
+</body>
+</html>
