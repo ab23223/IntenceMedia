@@ -1,381 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intence Media | Karate Photography</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Professional Photographer</title>
   <style>
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+    /* Reset some basic elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     
-    header {
-      background-color: #f9f9f9;
-      width: 100%;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+    }
+    
+    /* Navigation Bar */
+    nav {
       position: fixed;
       top: 0;
-      left: 0;
-      z-index: 999;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-
-    header nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 10px 20px;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      box-sizing: border-box;
+      padding: 1rem 5%;
+      transition: background-color 0.3s;
+      z-index: 1000;
     }
-
-    .logo {
-      height: 80px;
+    
+    nav.scrolled {
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
-    .nav-links a {
-      color: black;
-      font-size: 1.2rem;
+    
+    nav a {
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: 600;
+      color: #333;
+      margin: 0 1rem;
+      font-weight: bold;
     }
-
-    .nav-links a:hover {
-      color: lightgray;
+    
+    nav a:hover {
+      color: #555;
     }
-
-    header h1 {
-      font-size: 5rem;
-      visibility: hidden;
-    }
-
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .intro {
-      text-align: center;
-    }
-
-    .intro h2 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-    }
-
-    .intro p {
-      font-size: 1em;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .highlight-images {
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-    }
-
-    .highlight-images img {
-      width: 300px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-    }
-
-    .highlight-images img:hover {
-      transform: scale(1.03);
-    }
-
-    footer {
+      align-items: center;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #999;
-      background-color: #f9f9f9;
-      border-top: 1px solid #eee;
-    }
-
-    @media (max-width: 600px) {
-      .highlight-images {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .highlight-images img {
-        width: 90%;
-      }
-    }
-
-    .hero-section {
-      margin-top: 100px;
-      height: 90vh;
-      background-image: url('https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/j1sfphb9tbebb5zc7vap');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      padding: 40px;
-      box-sizing: border-box;
       color: white;
       position: relative;
     }
-
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
     .hero-content {
-      background: transparent;
-      border: 2px solid white;
-      padding: 20px 30px;
-      border-radius: 12px;
-      text-align: right;
+      position: relative;
+      z-index: 1;
     }
-
-    .hero-content h1,
-    .hero-content p {
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
     }
-
-    .hero-content h1 {
-      font-size: 2.8em;
-      margin: 0;
+    
+    .logo img{
+      width: 100px;
     }
-
-    .hero-content p {
-      font-size: 1.2em;
-      margin: 10px 0;
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
     }
-
-    .hero-content button {
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .hero-content button:hover {
-      background-color: white;
-      color: black;
-    }
-
-    .hook-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      flex-wrap: wrap;
-      gap: 30px;
-      text-align: center;
-      background-color: #f9f9f9;
-    }
-
-    .hook-section img {
-      width: 300px;
-      height: auto;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .hook-section img:hover {
-      transform: scale(1.05);
-    }
-
-    .hook-text {
-      max-width: 400px;
-    }
-
-    /* Added styles for inline styles section */
-    .how-it-works-section {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      padding: 100px 20px;
-      background-color: #fff;
-    }
-
-    .how-it-works-left-column {
-      flex: 1;
-      padding-right: 40px;
-      border-right: 3px solid #e0e0e0;
-    }
-
-    .how-it-works-left-column h3 {
-      font-size: 3.2em;
-      font-weight: 600;
-      margin-bottom: 40px;
-      color: #333;
-    }
-
-    .how-it-works-left-column .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .how-it-works-step {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: #f7f7f7;
-      border-left: 5px solid #ff5a5f;
-    }
-
-    .how-it-works-step img {
-      width: 50px;
-      height: 50px;
-    }
-
-    .how-it-works-step h4 {
-      font-size: 1.8em;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .how-it-works-step p {
-      font-size: 1.1em;
-      color: #555;
-    }
-
-    .how-it-works-right-column {
-      flex: 1;
-      padding-left: 40px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .how-it-works-right-column h2 {
-      font-size: 3.2em;
-      font-weight: 600;
-      margin-bottom: 40px;
-      color: #333;
-    }
-
-    .how-it-works-right-column p {
-      font-size: 1.5em;
-      margin-bottom: 30px;
-      color: #666;
-    }
-
-    .how-it-works-right-column a {
-      font-size: 1.2em;
-      padding: 20px 40px;
-      background-color: #ff5a5f;
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #333;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    
+    .btn:hover {
+      background: #555;
+    }
+    
+    /* Our Services Section */
+    .services {
+      display: flex;
+      justify-content: space-between;
+      padding: 5% 10%;
+      padding-top: 150px;
+      background-color: #f4f4f4;
+    }
+    
+    .services .text {
+      width: 50%;
+      text-align: left;
+    }
+    
+    .services .text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .services .text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #666;
+    }
+    
+    .services .image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .services .image img {
+      width: 80%;
+      height: auto;
+    }
+    
+    .services .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.7); /* Light background */
+      padding: 1rem;
+      color: #333;
+      text-align: center;
+      font-size: 1.5rem;
+      display: block; /* Ensure it is visible all the time */
+      border-radius: 5px; /* Optional for rounded corners */
+    }
+    
+    /* Portfolio Section */
+    /* Portfolio Section */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 5%;
+      background: #f4f4f4;
     }
 
-    .how-it-works-right-column a:hover {
-      transform: scale(1.05);
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
     }
 
-    .how-it-works-right-column img {
-      margin-top: 50px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    
+    /* Hero Section for Packages */
+    .packages-hero {
+      height: 80vh;
+      background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .packages-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .packages-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .packages-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .packages-hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* New Text and Image Section */
+    .text-image {
+      display: flex;
+      justify-content: space-between;
+      padding: 5% 10%;
+      background-color: #f4f4f4;
+    }
+    
+    .text-image .text {
+      width: 50%;
+      text-align: left;
+    }
+    
+    .text-image .text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .text-image .text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #666;
+    }
+    
+    .text-image .image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .text-image .image img {
+      width: 80%;
+      height: auto;
+    }
+    
+    /* View Our Work Section */
+    .view-work-hero {
+      height: 80vh;
+      background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .view-work-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .view-work-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .view-work-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .view-work-hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: #333;
+      color: white;
+    }
+    
+    footer a {
+      color: white;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Add some responsiveness */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+    
+      .hero p {
+        font-size: 1.2rem;
+      }
+    
+      .btn {
+        padding: 0.5rem 1rem;
+      }
+    
+      .services h1 {
+        font-size: 2.5rem;
+      }
+    
+      .services p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/IntenceMedia/"><img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Logo" class="logo" /></a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="gallery">Gallery</a>
-        <a href="competitions">Competitions</a>
-      </div>
-    </nav>    
-  </header>
-  
-  <section class="hero-section">
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="logo">
+      <a href="/IntenceMedia/"><img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Logo"></a>
+    </div>
+    <div>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="hero-content">
-      <h1>Intence Media</h1>
-      <p>Karate Event Photography</p>
-      <button onclick="document.getElementById('hook-section').scrollIntoView({ behavior: 'smooth' });">Book Now!</button>
+      <h1>Crafting Imagery</h1>
+      <p>From capturing moments to creating your vision with photography.</p>
+      <a href="#services" class="btn">View Portfolio</a>
     </div>
   </section>
 
-  <section class="how-it-works-section">
-    <!-- Left Column: How It Works -->
-    <div class="how-it-works-left-column">
-      <h3>How It Works</h3>
-      <div class="steps">
-        <!-- Step 1: Choose Your Competition -->
-        <div class="how-it-works-step">
-          <img src="https://www.citypng.com/public/uploads/preview/hd-vector-calendar-icon-transparent-background-701751695033013y1f6o6ukoh.png" alt="Choose Competition Icon"/>
-          <div>
-            <h4>Choose Your Competition</h4>
-            <p>Select your desired competition and reserve your spot.</p>
-          </div>
-        </div>
-
-        <!-- Step 2: Get Captured -->
-        <div class="how-it-works-step">
-          <img src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-vector-camera-icon-png-image_696326.jpg" alt="Get Captured Icon"/>
-          <div>
-            <h4>Get Captured</h4>
-            <p>Enjoy a photo shoot capturing your best moments.</p>
-          </div>
-        </div>
-
-        <!-- Step 3: Receive Photos -->
-        <div class="how-it-works-step">
-          <img src="https://png.pngtree.com/png-vector/20220610/ourmid/pngtree-simple-gallery-or-album-icon-with-photos-or-images-png-image_4959299.png" alt="Receive Photos Icon"/>
-          <div>
-            <h4>Receive Photos</h4>
-            <p>Receive edited photos within a week of your event.</p>
-          </div>
-        </div>
-      </div>
+  <!-- Our Services Section -->
+  <section id="services" class="services">
+    <div class="text">
+      <h1>Our Services</h1>
+      <p>From dynamic sports shots to intimate portraits, our services cover a wide range of photography needs. We offer packages designed to fit any occasion, with attention to detail and quality at every step. No matter what you're looking for, we’re here to help you preserve your memories. Below are some of the Services we offer.</p>
     </div>
-
-    <!-- Right Column: Call to Action with Image -->
-    <div class="how-it-works-right-column">
-      <h2>Ready to Get Your Moment Captured?</h2>
-      <p>Click below to explore upcoming competitions and book your photo package.</p>
-      <a href="/competitions">Explore Competitions</a>
-      <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Event"/>
+    <div class="image">
+      <img src="https://www.clker.com/cliparts/b/n/f/r/L/t/orange-rectangle.svg.med.png" alt="Service Image">
     </div>
   </section>
 
-  <main>
-    <section class="intro">
-      <h2>Sample Shots</h2>
-      <p>Professional photography for karate competitions. Affordable, Professional and Memorable.</p>
-      <div class="highlight-images">
-        <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Highlight 1" />
-        <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Highlight 2" />
-        <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Karate Highlight 3" />
-      </div>
-    </section>
-  </main>
+  <!-- Portfolio Section -->
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="portfolio-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrgEkJD7WiHYt84GoAtvlMCc2ZI58iUSVtg&s" alt="Category 1">
+      <div class="overlay">Action + Adventure</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxtFFSP732Tya5EeXcUoYHqsXEHeLrTIFH4A&s" alt="Category 2">
+      <div class="overlay">Track and Field</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://www.cdc.gov/cancer/media/images/african-american-family-1200x675-1.jpg" alt="Category 3">
+      <div class="overlay">People</div>
+    </div>
+    <!-- Add more portfolio items as needed -->
+  </section>
 
+
+  <!-- Hero Section for Packages -->
+  <section class="packages-hero">
+    <div class="packages-hero-content">
+      <h1>Our Packages</h1>
+      <p>Explore the perfect photography packages to capture your special moments.</p>
+      <a href="packages.html" class="btn">View Packages</a>
+    </div>
+  </section>
+
+  <!-- New Text and Image Section -->
+  <section class="text-image">
+    <div class="text">
+      <h1>Why Choose Us?</h1>
+      <p>We’re not just about taking pictures; we’re about capturing moments that matter. With years of experience, we’ve developed a unique approach to photography that focuses on what you want to remember. Whether it’s an action-packed event, a quiet family moment, or something in between, we’ve got you covered. We take the time to understand your needs and bring out the best in every shot.</p>
+    </div>
+    <div class="image">
+      <img src="https://www.clker.com/cliparts/b/n/f/r/L/t/orange-rectangle.svg.med.png" alt="Why Choose Us">
+    </div>
+  </section>
+
+  <!-- Hero Section for Work -->
+  <section class="view-work-hero">
+    <div class="view-work-hero-content">
+      <h1>View Our Work</h1>
+      <p>Explore our photography services and see the results of our passion.</p>
+      <a href="work.html" class="btn">View Our Work</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Karate Event Photography</p>
+    <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+    <div>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
   </footer>
+
+  <script>
+    // Change nav background on scroll
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+
 </body>
 </html>

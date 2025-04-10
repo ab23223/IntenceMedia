@@ -22,5 +22,10 @@ def competitions():
 def competitions1():
      return template('competitions1')
 
+@route('/hi2')
+def hi2():
+     return template('hi2')
+
+
 #main
 run(reloader=True)
