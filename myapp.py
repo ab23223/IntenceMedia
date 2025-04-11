@@ -26,6 +26,21 @@ def competitions1():
 def hi2():
      return template('hi2')
 
+@route('/services')
+def services():
+     return template('services')
+
+@route('/packages')
+def packages():
+     return template('packages')
+
+@route('/portfolio')
+def portfolio():
+     return template('portfolio')
+
+@route('/work')
+def work():
+     return template('work')
 
 #main
 run(reloader=True)

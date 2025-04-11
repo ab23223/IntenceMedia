@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Packages | Your Name</title>
+    <style>
+        /* Reset some basic elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #555;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Packages Section */
+        .packages-section {
+            padding: 5% 10%;
+            text-align: center;
+            background-color: white;
+        }
+
+        .packages-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package {
+            background-color: #fff;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .package h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .package p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 5% 10%;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .about-us h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-us p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5% 10%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .contact h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 50%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            padding: 1rem 2rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add responsiveness */
+        @media (max-width: 768px) {
+            .packages {
+                grid-template-columns: 1fr;
+            }
+
+            .contact input,
+            .contact textarea {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/"><img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1743371665/Intence_Detailing_sabanc.png" alt="Logo" width="100"></a>
+        </div>
+        <div>
+            <a href="#packages">Packages</a>
+            <a href="#about-us">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Photography Packages</h1>
+            <p>Explore the perfect photography packages for your special moments</p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <h2>Our Packages</h2>
+        <div class="packages">
+            <div class="package">
+                <h3>Basic Package</h3>
+                <p>Perfect for smaller events or intimate portraits. Includes up to 2 hours of shooting time.</p>
+                <div class="price">$500</div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+            <div class="package">
+                <h3>Standard Package</h3>
+                <p>Great for weddings and larger events. Includes up to 5 hours of shooting and photo editing.</p>
+                <div class="price">$1200</div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+            <div class="package">
+                <h3>Premium Package</h3>
+                <p>The full experience. Includes up to 10 hours of shooting, premium editing, and an album.</p>
+                <div class="price">$2500</div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us">
+        <h3>Why Choose Us?</h3>
+        <p>We take pride in capturing timeless moments. With years of experience, we ensure that every shot is
+            perfect for your special day. Whether it's a wedding, an event, or a portrait session, we go above and beyond
+            to give you high-quality images that will last a lifetime.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h3>Contact Us</h3>
+        <form action="#">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+        <div>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

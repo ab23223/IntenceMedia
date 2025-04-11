@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Professional Photography</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #fff; }
+    nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; }
+    nav a { text-decoration: none; color: #333; font-weight: bold; margin: 0 1rem; }
+    nav a:hover { color: #555; }
+    /* Hero Section */
+    .hero { height: 100vh; background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover; display: flex; justify-content: center; align-items: center; text-align: center; color: white; }
+    .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.5rem; margin-bottom: 2rem; }
+    /* Portfolio Grid */
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; padding: 5%; background: #f4f4f4; }
+    .portfolio-item { position: relative; overflow: hidden; }
+    .portfolio-item img { width: 100%; display: block; transition: transform 0.3s; }
+    .portfolio-item:hover img { transform: scale(1.1); }
+    .portfolio-item .overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.5rem; font-weight: bold; }
+    footer { padding: 2rem 0; background: #333; color: white; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/">Your Logo</a></div>
+    <div>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Our Portfolio</h1>
+      <p>Browse through some of our latest work</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="portfolio">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400" alt="Portfolio Item 1">
+      <div class="overlay">Action Shots</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400" alt="Portfolio Item 2">
+      <div class="overlay">Portraits</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400" alt="Portfolio Item 3">
+      <div class="overlay">Product Photography</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
