@@ -42,5 +42,13 @@ def portfolio():
 def work():
      return template('work')
 
+@route('/work')
+def work():
+     return template('work')
+
+@route('/contact')
+def contact():
+     return template('contact')
+
 #main
 run(reloader=True)

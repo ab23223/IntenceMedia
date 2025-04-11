@@ -20,9 +20,6 @@
             background-color: #f9f9f9;
         }
 
-        .logo img{
-            width: 110px;
-        }
         /* Navigation Bar */
         nav {
             position: fixed;
@@ -32,25 +29,29 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            background-color: white;
+            transition: background-color 0.3s;
             z-index: 1000;
+        }
+        
+        nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
+        
         nav a {
             text-decoration: none;
             color: #333;
             margin: 0 1rem;
             font-weight: bold;
         }
-
+        
         nav a:hover {
             color: #555;
         }
-
+        
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 100vh;
             background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover;
             display: flex;
             justify-content: center;
@@ -59,7 +60,7 @@
             color: white;
             position: relative;
         }
-
+        
         .hero::after {
             content: '';
             position: absolute;
@@ -67,34 +68,38 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
         }
-
+        
         .hero-content {
             position: relative;
             z-index: 1;
         }
-
+        
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
         }
-
+        
+        .logo img{
+            width: 100px;
+        }
+        
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
         }
-
+        
         .btn {
-            padding: 0.75rem 2rem;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
             background: #333;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-weight: bold;
             transition: background 0.3s;
         }
-
+        
         .btn:hover {
             background: #555;
         }
@@ -227,9 +232,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <!-- Navigation -->
     <nav>
         <div class="logo">
@@ -237,9 +240,9 @@
                     alt="Logo"></a>
         </div>
         <div>
-            <a href="#portfolio">Portfolio</a>
+            <a href="/portfolio">Portfolio</a>
             <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="/contact">Contact</a>
         </div>
     </nav>
 
@@ -259,9 +262,9 @@
     </section>
 
     <!-- Services Grid Section -->
-    <section class="services-grid">
+    <section id="services" class="services-grid">
         <div class="service-item">
-            <img src="https://images.unsplash.com/photo-1519396877861-e04093b50635?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjE3OXwwfDF8c2VhY2h8Mnx8c3BvcnRzfGVufDB8fHx8fDE2NTUzMzA5NzQ&ixlib=rb-1.2.1&q=80&w=400"
+            <img src="https://www.format.com/wp-content/uploads/Soccer_-_sports_photography_guide.jpg"
                 alt="Sports Photography">
             <div class="content">
                 <h3>Sports Photography</h3>
@@ -270,7 +273,7 @@
         </div>
 
         <div class="service-item">
-            <img src="https://images.unsplash.com/photo-1564591968-dfd56fdd16b5?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjE3OXwwfDF8c2VhY2h8Mnx8Z3Jhc3B8ZW58MHx8fHwxNjY1NTMzMTg3&ixlib=rb-1.2.1&q=80&w=400"
+            <img src="https://classiccar.co.nz/wp-content/uploads/2023/03/526_image-asset.jpg"
                 alt="Event Photography">
             <div class="content">
                 <h3>Event Photography</h3>
@@ -279,11 +282,11 @@
         </div>
 
         <div class="service-item">
-            <img src="https://images.unsplash.com/photo-1531474705784-2da45bb8b7ae?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjE3OXwwfDF8c2VhY2h8Mnx8YmF0aCUyMG9mJTIwZG9jJTIwZXNwZXJ0c3xlbnwwfDB8fHx8fDE2NTUzMzA4MDQ&ixlib=rb-1.2.1&q=80&w=400"
+            <img src="https://nzv8.co.nz/wp-content/uploads/2023/04/Dale_Camaro_NZV8-49-2048x1365.jpg"
                 alt="Portrait Photography">
             <div class="content">
-                <h3>Portrait Photography</h3>
-                <p>From personal portraits to family shoots, we create beautiful, natural-looking photos that capture your true personality.</p>
+                <h3>Car Photography</h3>
+                <p>From flash supercars to classic muscle cars, we take beautiful, detail-capturing photos that expose your cars true beauty.</p>
             </div>
         </div>
 
@@ -291,8 +294,8 @@
             <img src="https://images.unsplash.com/photo-1491953436118-2fe6f4a84216?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjE3OXwwfDF8c2VhY2h8Mnx8cGVvcGxlJTIwY2F0ZXJpbmclMjB3aXRoJTIwd2VkaGluZyUyMGRpZ2l0YWxzfGVufDB8fHx8fDE2NTUzMzA4Mjk&ixlib=rb-1.2.1&q=80&w=400"
                 alt="Candid Photography">
             <div class="content">
-                <h3>Candid Photography</h3>
-                <p>Capture the raw and real moments that tell the full story, whether it’s a wedding, family gathering, or just a candid day out.</p>
+                <h3>And More!</h3>
+                <p>Its hard to list everything we do, because we do so much! If you have any occasions that you want captured contact us for more info.</p>
             </div>
         </div>
     </section>
