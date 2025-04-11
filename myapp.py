@@ -50,5 +50,10 @@ def work():
 def contact():
      return template('contact')
 
+@route('/googlec84cb0ca6911faab.html')
+def googlec84cb0ca6911faab():
+     return template('googlec84cb0ca6911faab.html')
+
+
 #main
 run(reloader=True)
