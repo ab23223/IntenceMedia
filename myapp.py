@@ -54,6 +54,10 @@ def contact():
 def googlec84cb0ca6911faab():
      return template('googlec84cb0ca6911faab.html')
 
+@route('/sitemap.xml')
+def sitemap():
+     return template('sitemap.xml')
+
 
 #main
 run(reloader=True)
