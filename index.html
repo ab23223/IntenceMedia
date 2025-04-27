@@ -58,6 +58,7 @@
         text-align: center;
         color: white;
         position: relative;
+        background-attachment: fixed;
       }
       
       .hero::after {
@@ -88,20 +89,52 @@
         font-size: 1.5rem;
         margin-bottom: 2rem;
       }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
       
+      /* Base Button Style */
       .btn {
         display: inline-block;
         padding: 0.75rem 1.5rem;
-        background: #333;
-        color: white;
+        font-size: 1rem;
+        font-weight: 600;
         text-decoration: none;
-        border-radius: 5px;
-        transition: background 0.3s;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        background-color: #f9f9f9; /* Light background */
+        color: #333; /* Dark text */
+        border: 1px solid #ddd; /* Soft border */
       }
-      
-      .btn:hover {
-        background: #555;
+
+      /* Primary Button */
+      .btn-primary {
+        background-color: #f9f9f9;
+        border-color: #ccc;
       }
+
+      .btn-primary:hover {
+        background-color: #e0e0e0;
+        color: #111;
+        border-color: #bbb;
+      }
+
+      /* Outline Button */
+      .btn-outline {
+        background-color: transparent;
+        color: #333;
+        border: 1px solid #ccc;
+      }
+
+      .btn-outline:hover {
+        background-color: #f0f0f0;
+        color: #111;
+      }
+
       
       /* Our Services Section */
       .services {
@@ -155,6 +188,7 @@
         flex: 1;                       /* Allows the text to take equal space */
         text-align: left;
         margin-right: 2rem;            /* Adds space between text and image */
+        font-size: 1.25rem;
       }
       
       .text-image .text h1 {
@@ -177,6 +211,31 @@
         width: 80%;
         height: auto;
       }
+      /* Why Choose Us Section */
+      .text-image .reasons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .text-image .reason {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .text-image .reason strong {
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      .text-image .reason p {
+        font-size: 1rem;
+        color: #666;
+        margin: 0;
+      }
+
       
       /* Portfolio Section */
       .portfolio {
@@ -184,9 +243,19 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1rem;
         padding: 5%;
-        background: #f4f4f4;
+        background: #f4f4f4;        
       }
       
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+        filter: brightness(80%);
+      }
+
+      .portfolio-item:hover .overlay {
+        color: #ff6600;
+        text-shadow: 1px 1px 5px black;
+      }
+
       .portfolio-item {
         position: relative;
         overflow: hidden;
@@ -337,17 +406,22 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Crafting Imagery</h1>
-      <p>From capturing moments to creating your vision with photography.</p>
-      <a href="#services" class="btn">View Services</a>
+      <h1 class="hero-title">Crafting Imagery</h1>
+      <p class="hero-subtitle">From capturing moments to creating your vision.</p>
+      <div class="scroll-down">↓</div>
+      <div class="hero-buttons">
+        <a href="/IntenceMedia/portfolio" class="btn btn-primary">View Portfolio</a>
+        <a href="#services" class="btn btn-primary">View Services</a>
+      </div>
     </div>
   </section>
+  
 
   <!-- Our Services Section -->
   <section id="services" class="services">
     <div class="text">
       <h1>Our Services</h1>
-      <p>From dynamic sports shots to intimate portraits, our services cover a wide range of photography needs. We offer packages designed to fit any occasion, with attention to detail and quality at every step. No matter what you're looking for, we’re here to help you preserve your memories. Below are some of the Services we offer.</p>
+      <p>We capture moments from all kinds of events. While I’ll be at every karate competition, for other types of photography, such as events or custom shoots, please reach out to me via email to discuss your needs. Our services are tailored to fit any occasion, and we ensure that every shot is filled with detail and quality. Whatever you're looking to preserve, we’re here to help make it happen.</p>
     </div>
     <div class="image">
       <img src="https://www.clker.com/cliparts/b/n/f/r/L/t/orange-rectangle.svg.med.png" alt="Service Image">
@@ -357,16 +431,18 @@
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio">
     <div class="portfolio-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrgEkJD7WiHYt84GoAtvlMCc2ZI58iUSVtg&s" alt="Category 1">
-      <div class="overlay">Action + Adventure</div>
+      <a href="competitions" target="_blank">
+        <img src="https://www.jyoshinmon.org.nz/media/bs1oujkw/knz-jan-camp.jpg?width=500&height=234.7417840375587" alt="Category 1">
+        <div class="overlay">Karate</div>
+      </a>
     </div>
     <div class="portfolio-item">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxtFFSP732Tya5EeXcUoYHqsXEHeLrTIFH4A&s" alt="Category 2">
-      <div class="overlay">Track and Field</div>
+      <div class="overlay">Rugby</div>
     </div>
     <div class="portfolio-item">
       <img src="https://www.cdc.gov/cancer/media/images/african-american-family-1200x675-1.jpg" alt="Category 3">
-      <div class="overlay">People</div>
+      <div class="overlay">Events</div>
     </div>
   </section>
 
@@ -383,19 +459,41 @@
   <section class="text-image">
     <div class="text">
       <h1>Why Choose Us?</h1>
-      <p>We’re not just about taking pictures; we’re about capturing moments that matter. With years of experience, we’ve developed a unique approach to photography that focuses on what you want to remember. Whether it’s an action-packed event, a quiet family moment, or something in between, we’ve got you covered. We take the time to understand your needs and bring out the best in every shot.</p>
+      <div class="reasons">
+        <div class="reason">
+          <strong>📸 Expertise</strong>
+          <p>Years of experience capturing your special moments.</p>
+        </div>
+        <div class="reason">
+          <strong>🎨 Creativity</strong>
+          <p>Every shot crafted with artistic flair.</p>
+        </div>
+        <div class="reason">
+          <strong>🌟 Quality</strong>
+          <p>High-end gear for stunning results.</p>
+        </div>
+        <div class="reason">
+          <strong>⚡ Quick Turnaround</strong>
+          <p>Fast, efficient, and quality-driven delivery.</p>
+        </div>
+        <div class="reason">
+          <strong>💬 Client-First</strong>
+          <p>Your satisfaction is our priority.</p>
+        </div>
+      </div>
     </div>
     <div class="image">
       <img src="https://www.clker.com/cliparts/b/n/f/r/L/t/orange-rectangle.svg.med.png" alt="Why Choose Us">
     </div>
   </section>
 
+
   <!-- Hero Section for Work -->
   <section class="view-work-hero">
     <div class="view-work-hero-content">
-      <h1>View Our Work</h1>
+      <h1>View Our Portfolio</h1>
       <p>Explore our photography services and see the results of our passion.</p>
-      <a href="work.html" class="btn">View Our Work</a>
+      <a href="portfolio" class="btn">View Our Portfolio</a>
     </div>
   </section>
 
