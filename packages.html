@@ -251,6 +251,283 @@
             text-decoration: underline;
         }
 
+        /*-- -------------------------- -->
+        <---          Pricing           -->
+        <--- -------------------------- -*/
+
+        /* Mobile - 360px */
+        @media only screen and (min-width: 0rem) {
+        #pricing-1790 {
+            padding: var(--sectionPadding);
+            padding-bottom: 10vw;
+            background-color: #F7F7F7;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        #pricing-1790 .cs-container {
+            width: 100%;
+            max-width: 80rem;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        #pricing-1790 .cs-content {
+            /* set text align to center if content needs to be center aligned */
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: flex-start;
+            position: relative;
+        }
+        #pricing-1790 .cs-flex {
+            display: flex;
+            flex-direction: column;
+        }
+        #pricing-1790 .cs-title {
+            margin: 0;
+        }
+        #pricing-1790 .cs-wrapper {
+            width: 100%;
+            max-width: 80rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #pricing-1790 .cs-ul {
+            width: 100%;
+            margin: 1.5rem 0 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        #pricing-1790 .cs-li {
+            font-size: var(--bodyFontSize);
+            list-style: none;
+            line-height: 1.5em;
+            width: 100%;
+            max-width: 21.8125rem;
+            color: var(--bodyTextColor);
+            display: flex;
+            justify-content: flex-start;
+            /* push icon top the top so if the list item goes to two lines the icon stays at the top */
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        #pricing-1790 .cs-icon {
+            width: 1.125rem;
+            height: auto;
+            display: block;
+        }
+        #pricing-1790 .cs-card-group {
+            width: 100%;
+            max-width: 57rem;
+            margin: 3rem 0 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #pricing-1790 .cs-item {
+            text-align: center;
+            list-style: none;
+            width: 100%;
+            margin: 0;
+            /* 32px - 40px top *
+                    /* 16px - 32px left & right */
+            padding: clamp(2rem, 2vw, 2.5rem) clamp(1rem, 1.5vw, 2rem);
+            background-color: #FFFFFF;
+            /* prevents padding and border from affecting height and width */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+        }
+        #pricing-1790 .cs-item.cs-popular {
+            background-color: #1A1A1A;
+            /* 48px - 64px top & bottom */
+            /* 16px - 32px left & right */
+            padding: clamp(3rem, 6vw, 4rem) clamp(1rem, 1.5vw, 2rem);
+        }
+        #pricing-1790 .cs-item.cs-popular .cs-package,
+        #pricing-1790 .cs-item.cs-popular .cs-frequency,
+        #pricing-1790 .cs-item.cs-popular .cs-item-text {
+            color: var(--bodyTextColorWhite);
+            opacity: 0.9;
+        }
+        #pricing-1790 .cs-item.cs-popular .cs-price {
+            color: var(--bodyTextColorWhite);
+        }
+        #pricing-1790 .cs-item.cs-popular .cs-button-solid {
+            transition: color 0.3s;
+        }
+        #pricing-1790 .cs-item.cs-popular .cs-button-solid:hover {
+            color: var(--primary);
+        }
+        #pricing-1790 .cs-item.cs-popular .cs-button-solid:before {
+            background-color: #fff;
+        }
+        #pricing-1790 .cs-package {
+            /* 13px - 16px */
+            font-size: clamp(0.8125rem, 1.4vw, 1rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: inherit;
+            text-transform: uppercase;
+            margin: 0 0 0.25rem 0;
+            color: var(--bodyTextColor);
+            display: block;
+        }
+        #pricing-1790 .cs-flex-wrapper {
+            width: 100%;
+            margin: 0 0 1.5rem 0;
+            padding: 0 0 1.5rem;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        #pricing-1790 .cs-flex-wrapper:after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(232, 232, 232, 0.2) 0%, #e8e8e8 53.78%, rgba(232, 232, 232, 0.2) 100%);
+            opacity: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+        }
+        #pricing-1790 .cs-price {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: inherit;
+            margin: 0;
+            color: var(--headerColor);
+        }
+        #pricing-1790 .cs-frequency {
+            font-size: 1rem;
+            line-height: 1.5em;
+            text-align: inherit;
+            margin: 0;
+            color: var(--bodyTextColor);
+            display: block;
+        }
+        #pricing-1790 .cs-item-text {
+            font-size: 1rem;
+            line-height: 1.5em;
+            text-align: left;
+            margin: 0 0 auto;
+            color: var(--bodyTextColor);
+            list-style-position: outside;
+        }
+        #pricing-1790 .cs-button-solid {
+            font-size: 1rem;
+            font-weight: 700;
+            /* 46px - 56px */
+            line-height: clamp(2.875em, 5.5vw, 3.5em);
+            text-align: center;
+            text-decoration: none;
+            min-width: 9.375rem;
+            margin: 2rem 0 0 0;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+            padding: 0 1.5rem;
+            color: #fff;
+            background-color: var(--primary);
+            border-radius: 0.25rem;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        #pricing-1790 .cs-button-solid:before {
+            content: "";
+            width: 0%;
+            height: 100%;
+            background: #000;
+            opacity: 1;
+            border-radius: 0.25rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: width 0.3s;
+        }
+        #pricing-1790 .cs-button-solid:hover:before {
+            width: 100%;
+        }
+        #pricing-1790 .cs-graphic {
+            width: 100%;
+            min-width: 120rem;
+            height: auto;
+            position: absolute;
+            bottom: -1rem;
+            left: 0rem;
+            z-index: -1;
+        }
+        #pricing-1790 .cs-dark {
+            display: none;
+        }
+        }
+        /* Tablet - 768px */
+        @media only screen and (min-width: 48rem) {
+        #pricing-1790 .cs-container {
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+        #pricing-1790 .cs-content {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        #pricing-1790 .cs-ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: stretch;
+        }
+        #pricing-1790 .cs-card-group {
+            flex-direction: row;
+            align-items: stretch;
+        }
+        #pricing-1790 .cs-item {
+            height: auto;
+            margin: 1.5rem 0;
+        }
+        #pricing-1790 .cs-item.cs-popular {
+            margin: 0;
+        }
+        }
+        /* Small Desktop - 1024px */
+        @media only screen and (min-width: 64rem) {
+        #pricing-1790 .cs-ul {
+            width: 30%;
+            display: flex;
+        }
+        #pricing-1790 .cs-wrapper {
+            flex-direction: row;
+            gap: 1.25rem;
+        }
+        #pricing-1790 .cs-card-group {
+            margin: 0;
+        }
+        #pricing-1790 .cs-item {
+            min-height: 25rem;
+        }
+        }
+                                        
+
         /* Add responsiveness */
         @media (max-width: 768px) {
             .packages {
@@ -286,6 +563,114 @@
             <p>Explore the perfect photography packages for your special moments</p>
         </div>
     </section>
+
+    <!-- ============================================ -->
+    <!--                   Pricing                    -->
+    <!-- ============================================ -->
+
+    <section id="pricing-1790">
+        <div class="cs-container">
+            <div class="cs-content">
+                <div class="cs-flex">
+                    <span class="cs-topper">Pricing</span>
+                    <h2 class="cs-title">Choose Your Photography Package</h2>
+                </div>
+                <a href="" class="cs-button-solid">Book a Session</a>
+            </div>
+            <div class="cs-wrapper">
+                <ul class="cs-ul">
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Professional Photo Editing Included
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        High-Resolution Digital Images
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Private Online Gallery for Viewing
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Unlimited Downloads
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Print Release for Personal Use
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Location Scouting Assistance
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Social Media-Optimized Images
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Fast 7-Day Delivery
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-check.svg" alt="checkmark" width="24" height="24">
+                        Additional Prints Available for Purchase
+                    </li>
+                </ul>
+    
+                <ul class="cs-card-group">
+                    <li class="cs-item">
+                        <span class="cs-package">Basic Package</span>
+                        <div class="cs-flex-wrapper">
+                            <span class="cs-price">$20</span>
+                            <span class="cs-frequency">/Session</span>
+                        </div>
+                        <ul class="cs-item-text">
+                            <li>30-minute session</li>
+                            <li>10 professionally edited photos</li>
+                            <li>One location</li>
+                            <li>Perfect for quick portraits or social media updates</li>
+                        </ul>
+                        <a href="" class="cs-button-solid cs-price-button">Book Now!</a>
+                    </li>
+    
+                    <li class="cs-item cs-popular">
+                        <span class="cs-package">Standard Package</span>
+                        <div class="cs-flex-wrapper">
+                            <span class="cs-price">$60</span>
+                            <span class="cs-frequency">/Session</span>
+                        </div>
+                        <ul class="cs-item-text">
+                            <li>1-hour session</li>
+                            <li>25+ professionally edited photos</li>
+                            <li>Up to two locations</li>
+                            <li>Great for family shoots, couples, or branding sessions</li>
+                        </ul>
+                        <a href="" class="cs-button-solid cs-price-button">Book Now!</a>
+                    </li>
+    
+                    <li class="cs-item">
+                        <span class="cs-package">Ultimate Package</span>
+                        <div class="cs-flex-wrapper">
+                            <span class="cs-price">$150</span>
+                            <span class="cs-frequency">/Session</span>
+                        </div>
+                        <ul class="cs-item-text">
+                            <li>2-hour session</li>
+                            <li>60+ professionally edited photos</li>
+                            <li>Multiple locations</li>
+                            <li>Ideal for events, engagements, or full creative shoots</li>
+                        </ul>
+                        <a href="" class="cs-button-solid cs-price-button">Book Now!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- SVG Graphic -->
+        <img class="cs-graphic cs-light" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/white-texture.svg" alt="graphic" height="1920" width="483" loading="lazy" decoding="async" aria-hidden="true">
+        <img class="cs-graphic cs-dark" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/dark-spatter.svg" alt="graphic" height="1920" width="483" loading="lazy" decoding="async" aria-hidden="true">
+    </section>
+                                        
 
     <!-- Packages Section -->
     <section id="packages" class="packages-section">
