@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Meta Description (important for SEO) -->
+  <meta name="description" content="Intence Media offers professional photography services, including sport and event photography, portraits, and custom packages. Explore our portfolio and services today!">
+  
+  <!-- Title Tag (for SEO and search results) -->
   <title>Intence Media | Professional Photography</title>
+  
+  <!-- Open Graph meta tags for better social media sharing -->
+  <meta property="og:title" content="Intence Media | Professional Photography">
+  <meta property="og:description" content="Capture your moments with Intence Media, offering professional photography services tailored to your needs.">
+  <meta property="og:image" content="https://res.cloudinary.com/dfqreujbo/image/upload/v1738738526/INTEC_MEDIA1_famvag.png">
+  <meta property="og:url" content="https://ab23223.github.io/IntenceMedia/">
+
+
   <style>
     /* Reset some basic elements */
       * {
@@ -369,9 +382,161 @@
       footer a:hover {
         text-decoration: underline;
       }
-      
+      #services {
+          padding: 40px 20px;
+          background-color: #f5f5f5;
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+      }
+
+      h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+      }
+
+      p {
+          font-size: 1rem;
+          margin-bottom: 40px;
+          color: #666;
+      }
+
+      .service-list {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          list-style: none;
+          padding: 0;
+      }
+
+      .service-item {
+          width: 18%;
+          margin-bottom: 30px;
+          text-align: center;
+      }
+
+      .service-item a {
+          text-decoration: none;
+          color: #333;
+          display: block;
+          padding: 10px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s;
+      }
+
+      .service-item a:hover {
+          transform: scale(1.05);
+      }
+
+      .service-number {
+          font-size: 2rem;
+          font-weight: bold;
+          display: block;
+          margin-bottom: 10px;
+      }
+
+      .service-item h3 {
+          font-size: 1.2rem;
+          margin-bottom: 10px;
+      }
+
+      .service-item img {
+          width: 100%;
+          height: auto;
+          max-width: 413px;
+          margin-top: 15px;
+      }
+
+      @media (max-width: 480px) {
+          .service-item {
+              width: 100%;
+          }
+          .step-item {
+              width: 100%;
+          }
+      }
+
+      #steps {
+          padding: 40px 20px;
+          background-color: #f5f5f5;
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+      }
+
+      h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+      }
+
+      p {
+          font-size: 1rem;
+          margin-bottom: 40px;
+          color: #666;
+      }
+
+      .steps-list {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          list-style: none;
+          padding: 0;
+      }
+
+      .step-item {
+          width: 23%;
+          margin-bottom: 30px;
+          text-align: center;
+      }
+
+      .step-item h3 {
+          font-size: 1.2rem;
+          margin-top: 10px;
+          margin-bottom: 10px;
+      }
+
+      .step-item p {
+          font-size: 1rem;
+          color: #666;
+          margin-top: 10px;
+      }
+
+      .step-item .step-number {
+          font-size: 2rem;
+          font-weight: bold;
+          display: block;
+          margin-bottom: 10px;
+      }
+
+      .step-item a {
+          text-decoration: none;
+          color: #333;
+          display: block;
+          padding: 10px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s;
+      }
+
+      .step-item a:hover {
+          transform: scale(1.05);
+      }
+     
       /* Add responsiveness */
       @media (max-width: 768px) {
+        .step-item {
+          width: 45%;
+        }
+
         /* Stack the text and image on smaller screens */
         .services, .text-image {
           flex-direction: column;   /* Stacks text and image vertically */
@@ -386,6 +551,9 @@
           width: 100%;              /* Image takes full width */
           text-align: center;
         }
+        .service-item {
+              width: 45%;
+          }
       }
   </style>
   </head>
@@ -416,35 +584,86 @@
     </div>
   </section>
   
+  <!-- ============================================ -->
+  <!--                    Services                  -->
+  <!-- ============================================ -->
 
-  <!-- Our Services Section -->
-  <section id="services" class="services">
-    <div class="text">
-      <h1>Our Services</h1>
-      <p>We capture moments from all kinds of events. While I’ll be at every karate competition, for other types of photography, such as events or custom shoots, please reach out to me via email to discuss your needs. Our services are tailored to fit any occasion, and we ensure that every shot is filled with detail and quality. Whatever you're looking to preserve, we’re here to help make it happen.</p>
-    </div>
-    <div class="image">
-      <img src="https://www.clker.com/cliparts/b/n/f/r/L/t/orange-rectangle.svg.med.png" alt="Service Image">
+  <section id="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <p>We capture moments from all kinds of events, Our services are tailored to fit any occasion, and we ensure that every shot is filled with detail and quality. Whatever you're looking to preserve, we’re here to help make it happen.</p>
+        <ul class="service-list">
+            <li class="service-item">
+                <a href="#">
+                    <span class="service-number">01</span>
+                    <h3>Karate</h3>
+                    <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/gym-service-1.png" alt="Stretching">
+                </a>
+            </li>
+            <li class="service-item">
+                <a href="#">
+                    <span class="service-number">02</span>
+                    <h3>Automotive</h3>
+                    <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/gym-service-2.png" alt="Hypertrophy">
+                </a>
+            </li>
+            <li class="service-item">
+                <a href="#">
+                    <span class="service-number">03</span>
+                    <h3>Sports</h3>
+                    <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/gym-service-3.png" alt="Strength">
+                </a>
+            </li>
+            <li class="service-item">
+                <a href="#">
+                    <span class="service-number">04</span>
+                    <h3>Event</h3>
+                    <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/gym-service-4.png" alt="Yoga">
+                </a>
+            </li>
+            <li class="service-item">
+                <a href="#">
+                    <span class="service-number">05</span>
+                    <h3>Portraits</h3>
+                    <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/gym-service-5.png" alt="Cardio">
+                </a>
+            </li>
+        </ul>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
-    <div class="portfolio-item">
-      <a href="competitions" target="_blank">
-        <img src="https://www.jyoshinmon.org.nz/media/bs1oujkw/knz-jan-camp.jpg?width=500&height=234.7417840375587" alt="Category 1">
-        <div class="overlay">Karate</div>
-      </a>
-    </div>
-    <div class="portfolio-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxtFFSP732Tya5EeXcUoYHqsXEHeLrTIFH4A&s" alt="Category 2">
-      <div class="overlay">Rugby</div>
-    </div>
-    <div class="portfolio-item">
-      <img src="https://www.cdc.gov/cancer/media/images/african-american-family-1200x675-1.jpg" alt="Category 3">
-      <div class="overlay">Events</div>
+  <section id="steps">
+    <div class="container">
+        <h2>Simple steps to get started</h2>
+        <p>Follow these easy steps to book your session with us.</p>
+        <ul class="steps-list">
+            <li class="step-item">
+                <span class="step-number">01</span>
+                <h3>Choose Your Event</h3>
+                <p>Select the event or sport you want captured.</p>
+            </li>
+            <li class="step-item">
+                <span class="step-number">02</span>
+                <h3>Pick Date, Time & Location</h3>
+                <p>Choose the perfect time and location for your shoot.</p>
+            </li>
+            <li class="step-item">
+                <span class="step-number">03</span>
+                <h3>Select Your Package</h3>
+                <p>Pick the package that suits your needs.</p>
+            </li>
+            <li class="step-item">
+                <span class="step-number">04</span>
+                <h3>Get Captured!</h3>
+                <p>We’ll capture the action while you focus on the event.</p>
+            </li>
+        </ul>
+        <div class="steps-footer">
+          <p>Ready to book? Scroll down to view our packages or click below to get started!</p>
+      </div>
     </div>
   </section>
+
 
   <!-- Hero Section for Packages -->
   <section class="packages-hero">
