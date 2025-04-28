@@ -352,7 +352,7 @@
             position: relative;
         }
         #pricing-1790 .cs-item.cs-popular {
-            background-color: #1A1A1A;
+            background-color: #ADD8E6;
             /* 48px - 64px top & bottom */
             /* 16px - 32px left & right */
             padding: clamp(3rem, 6vw, 4rem) clamp(1rem, 1.5vw, 2rem);
@@ -432,6 +432,7 @@
             margin: 0 0 auto;
             color: var(--bodyTextColor);
             list-style-position: outside;
+            padding-left: 1.5rem;
         }
         #pricing-1790 .cs-button-solid {
             font-size: 1rem;
@@ -480,7 +481,24 @@
         #pricing-1790 .cs-dark {
             display: none;
         }
+        
+
+        #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid {
+            background-color: transparent; /* initially no background */
+            color: #000; /* black text initially */
+            border: 2px solid black; /* optional, for clarity */
+            transition: all 0.3s ease;
         }
+
+        #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid:before {
+            background-color: #000; /* black background on hover */
+        }
+
+        #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid:hover {
+            color: #fff; /* white text on hover */
+        }
+        }
+
         /* Tablet - 768px */
         @media only screen and (min-width: 48rem) {
         #pricing-1790 .cs-container {
