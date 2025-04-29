@@ -8,13 +8,24 @@
     <meta name="description" content="Explore the best photography packages from Intence Media to capture your special moments with high-quality, professional photography services." />
     
     <style>
-        /* Reset some basic elements */
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --sectionPadding: 5% 10%;
+            --bodyFontSize: 1rem;
+            --bodyTextColor: #666;
+            --bodyTextColorWhite: #fff;
+            --headerFontSize: 2.5rem;
+            --headerColor: #333;
+            --primary: #333;
+        }
+    
+        /* ========== RESET ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+    
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -22,8 +33,8 @@
             margin: 0;
             background-color: #f4f4f4;
         }
-
-        /* Navigation Bar */
+    
+        /* ========== NAVIGATION BAR ========== */
         nav {
             position: fixed;
             top: 0;
@@ -35,24 +46,28 @@
             transition: background-color 0.3s;
             z-index: 1000;
         }
-        
+    
         nav.scrolled {
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+    
         nav a {
             text-decoration: none;
             color: #333;
             margin: 0 1rem;
             font-weight: bold;
         }
-        
+    
         nav a:hover {
             color: #555;
         }
-        
-        /* Hero Section */
+    
+        .logo img {
+            width: 100px;
+        }
+    
+        /* ========== HERO SECTION ========== */
         .hero {
             height: 100vh;
             background: url('https://images.squarespace-cdn.com/content/v1/564e5f84e4b0e21822e30fe3/d7fb2592-78dd-48d4-b03e-95f505643021/_A117311.jpg') no-repeat center center/cover;
@@ -63,7 +78,7 @@
             color: white;
             position: relative;
         }
-        
+    
         .hero::after {
             content: '';
             position: absolute;
@@ -73,26 +88,23 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.3);
         }
-        
+    
         .hero-content {
             position: relative;
             z-index: 1;
         }
-        
+    
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
         }
-        
-        .logo img{
-            width: 100px;
-        }
-        
+    
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
         }
-        
+    
+        /* ========== BUTTON ========== */
         .btn {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -100,32 +112,33 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
             transition: background 0.3s;
         }
-        
+    
         .btn:hover {
             background: #555;
         }
-
-        /* Packages Section */
+    
+        /* ========== PACKAGES SECTION ========== */
         .packages-section {
             padding: 5% 10%;
             text-align: center;
             background-color: white;
         }
-
+    
         .packages-section h2 {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-
+    
         .packages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-
+    
         .package {
             background-color: #fff;
             padding: 2rem;
@@ -133,81 +146,66 @@
             border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
+    
         .package:hover {
             transform: translateY(-10px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
-
+    
         .package h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-
+    
         .package p {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 1.5rem;
         }
-
+    
         .price {
             font-size: 2.5rem;
             color: #333;
             margin-bottom: 1rem;
         }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #555;
-        }
-
-        /* About Us Section */
+    
+        /* ========== ABOUT US SECTION ========== */
         .about-us {
             padding: 5% 10%;
             background-color: #f9f9f9;
             text-align: center;
         }
-
+    
         .about-us h3 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-
+    
         .about-us p {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 2rem;
             line-height: 1.8;
         }
-
-        /* Contact Section */
+    
+        /* ========== CONTACT SECTION ========== */
         .contact {
             padding: 5% 10%;
             background-color: white;
             text-align: center;
         }
-
+    
         .contact h3 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-
+    
         .contact form {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
+    
         .contact input,
         .contact textarea {
             width: 50%;
@@ -217,7 +215,7 @@
             border: 1px solid #ccc;
             font-size: 1rem;
         }
-
+    
         .contact button {
             padding: 1rem 2rem;
             background-color: #333;
@@ -228,330 +226,341 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
+    
         .contact button:hover {
             background-color: #555;
         }
-
-        /* Footer */
+    
+        /* ========== FOOTER ========== */
         footer {
             text-align: center;
             padding: 2rem 0;
             background-color: #333;
             color: white;
         }
-
+    
         footer a {
             color: white;
             margin: 0 0.5rem;
             text-decoration: none;
         }
-
+    
         footer a:hover {
             text-decoration: underline;
         }
-
-        /*-- -------------------------- -->
-        <---          Pricing           -->
-        <--- -------------------------- -*/
-
-        /* Mobile - 360px */
+    
+        /* ========== PRICING SECTION (#pricing-1790) ========== */
+        /* MOBILE */
         @media only screen and (min-width: 0rem) {
-        #pricing-1790 {
-            padding: var(--sectionPadding);
-            padding-bottom: 10vw;
-            background-color: #F7F7F7;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            #pricing-1790 {
+                padding: var(--sectionPadding);
+                padding-bottom: 10vw;
+                background-color: #F7F7F7;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+            }
+    
+            #pricing-1790 .cs-container {
+                width: 100%;
+                max-width: 80rem;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+            }
+    
+            #pricing-1790 .cs-content {
+                text-align: left;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                position: relative;
+            }
+    
+            #pricing-1790 .cs-flex {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            #pricing-1790 .cs-title {
+                margin: 0;
+            }
+    
+            #pricing-1790 .cs-wrapper {
+                width: 100%;
+                max-width: 80rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            #pricing-1790 .cs-ul {
+                width: 100%;
+                margin: 1.5rem 0 0 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+    
+            #pricing-1790 .cs-li {
+                font-size: var(--bodyFontSize);
+                list-style: none;
+                line-height: 1.5em;
+                width: 100%;
+                max-width: 21.8125rem;
+                color: var(--bodyTextColor);
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+    
+            #pricing-1790 .cs-icon {
+                width: 1.125rem;
+                height: auto;
+                display: block;
+            }
+    
+            #pricing-1790 .cs-card-group {
+                width: 100%;
+                max-width: 57rem;
+                margin: 3rem 0 0 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            #pricing-1790 .cs-item {
+                text-align: left;
+                list-style: none;
+                width: 100%;
+                margin: 0;
+                padding: clamp(2rem, 2vw, 2.5rem) clamp(1rem, 1.5vw, 2rem);
+                background-color: #FFFFFF;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                position: relative;
+            }
+    
+            #pricing-1790 .cs-item.cs-popular {
+                background-color: #ADD8E6;
+                padding: clamp(3rem, 6vw, 4rem) clamp(1rem, 1.5vw, 2rem);
+            }
+    
+            #pricing-1790 .cs-item.cs-popular .cs-package,
+            #pricing-1790 .cs-item.cs-popular .cs-frequency,
+            #pricing-1790 .cs-item.cs-popular .cs-item-text {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.9;
+            }
+    
+            #pricing-1790 .cs-item.cs-popular .cs-price {
+                color: var(--bodyTextColorWhite);
+            }
+    
+            #pricing-1790 .cs-item.cs-popular .cs-button-solid {
+                transition: color 0.3s;
+            }
+    
+            #pricing-1790 .cs-item.cs-popular .cs-button-solid:hover {
+                color: var(--primary);
+            }
+    
+            #pricing-1790 .cs-item.cs-popular .cs-button-solid:before {
+                background-color: #fff;
+            }
+    
+            #pricing-1790 .cs-package {
+                font-size: clamp(0.8125rem, 1.4vw, 1rem);
+                font-weight: 700;
+                line-height: 1.2em;
+                text-align: inherit;
+                text-transform: uppercase;
+                margin: 0 0 0.25rem 0;
+                color: var(--bodyTextColor);
+                display: block;
+            }
+    
+            #pricing-1790 .cs-flex-wrapper {
+                width: 100%;
+                margin: 0 0 1.5rem 0;
+                padding: 0 0 1.5rem;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: center;
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1;
+            }
+    
+            #pricing-1790 .cs-flex-wrapper:after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(90deg, rgba(232, 232, 232, 0.2) 0%, #e8e8e8 53.78%, rgba(232, 232, 232, 0.2) 100%);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+    
+            #pricing-1790 .cs-price {
+                font-size: var(--headerFontSize);
+                font-weight: 900;
+                margin: 0;
+                color: var(--headerColor);
+            }
+    
+            #pricing-1790 .cs-frequency {
+                font-size: 1rem;
+                margin: 0;
+                color: var(--bodyTextColor);
+            }
+    
+            #pricing-1790 .cs-item-text {
+                font-size: 1rem;
+                line-height: 1.5em;
+                margin: 0 0 auto;
+                color: var(--bodyTextColor);
+                list-style-position: outside;
+                padding-left: 1.5rem;
+            }
+    
+            #pricing-1790 .cs-button-solid {
+                font-size: 1rem;
+                font-weight: 700;
+                line-height: clamp(2.875em, 5.5vw, 3.5em);
+                text-align: center;
+                text-decoration: none;
+                min-width: 9.375rem;
+                margin: 2rem 0 0 0;
+                box-sizing: border-box;
+                padding: 0 1.5rem;
+                color: #fff;
+                background-color: var(--primary);
+                border-radius: 0.25rem;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+            }
+    
+            #pricing-1790 .cs-button-solid:before {
+                content: "";
+                width: 0%;
+                height: 100%;
+                background: #000;
+                opacity: 1;
+                border-radius: 0.25rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transition: width 0.3s;
+            }
+    
+            #pricing-1790 .cs-button-solid:hover:before {
+                width: 100%;
+            }
+    
+            #pricing-1790 .cs-graphic {
+                width: 100%;
+                min-width: 120rem;
+                height: auto;
+                position: absolute;
+                bottom: -1rem;
+                left: 0;
+                z-index: -1;
+            }
+    
+            #pricing-1790 .cs-dark {
+                display: none;
+            }
+    
+            #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid {
+                background-color: transparent;
+                color: #000;
+                border: 2px solid black;
+                transition: all 0.3s ease;
+            }
+    
+            #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid:before {
+                background-color: #000;
+            }
+    
+            #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid:hover {
+                color: #fff;
+            }
         }
-        #pricing-1790 .cs-container {
-            width: 100%;
-            max-width: 80rem;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
-        #pricing-1790 .cs-content {
-            /* set text align to center if content needs to be center aligned */
-            text-align: left;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: flex-start;
-            position: relative;
-        }
-        #pricing-1790 .cs-flex {
-            display: flex;
-            flex-direction: column;
-        }
-        #pricing-1790 .cs-title {
-            margin: 0;
-        }
-        #pricing-1790 .cs-wrapper {
-            width: 100%;
-            max-width: 80rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        #pricing-1790 .cs-ul {
-            width: 100%;
-            margin: 1.5rem 0 0 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-        #pricing-1790 .cs-li {
-            font-size: var(--bodyFontSize);
-            list-style: none;
-            line-height: 1.5em;
-            width: 100%;
-            max-width: 21.8125rem;
-            color: var(--bodyTextColor);
-            display: flex;
-            justify-content: flex-start;
-            /* push icon top the top so if the list item goes to two lines the icon stays at the top */
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-        #pricing-1790 .cs-icon {
-            width: 1.125rem;
-            height: auto;
-            display: block;
-        }
-        #pricing-1790 .cs-card-group {
-            width: 100%;
-            max-width: 57rem;
-            margin: 3rem 0 0 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        #pricing-1790 .cs-item {
-            text-align: center;
-            list-style: none;
-            width: 100%;
-            margin: 0;
-            /* 32px - 40px top *
-                    /* 16px - 32px left & right */
-            padding: clamp(2rem, 2vw, 2.5rem) clamp(1rem, 1.5vw, 2rem);
-            background-color: #FFFFFF;
-            /* prevents padding and border from affecting height and width */
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            position: relative;
-        }
-        #pricing-1790 .cs-item.cs-popular {
-            background-color: #ADD8E6;
-            /* 48px - 64px top & bottom */
-            /* 16px - 32px left & right */
-            padding: clamp(3rem, 6vw, 4rem) clamp(1rem, 1.5vw, 2rem);
-        }
-        #pricing-1790 .cs-item.cs-popular .cs-package,
-        #pricing-1790 .cs-item.cs-popular .cs-frequency,
-        #pricing-1790 .cs-item.cs-popular .cs-item-text {
-            color: var(--bodyTextColorWhite);
-            opacity: 0.9;
-        }
-        #pricing-1790 .cs-item.cs-popular .cs-price {
-            color: var(--bodyTextColorWhite);
-        }
-        #pricing-1790 .cs-item.cs-popular .cs-button-solid {
-            transition: color 0.3s;
-        }
-        #pricing-1790 .cs-item.cs-popular .cs-button-solid:hover {
-            color: var(--primary);
-        }
-        #pricing-1790 .cs-item.cs-popular .cs-button-solid:before {
-            background-color: #fff;
-        }
-        #pricing-1790 .cs-package {
-            /* 13px - 16px */
-            font-size: clamp(0.8125rem, 1.4vw, 1rem);
-            font-weight: 700;
-            line-height: 1.2em;
-            text-align: inherit;
-            text-transform: uppercase;
-            margin: 0 0 0.25rem 0;
-            color: var(--bodyTextColor);
-            display: block;
-        }
-        #pricing-1790 .cs-flex-wrapper {
-            width: 100%;
-            margin: 0 0 1.5rem 0;
-            padding: 0 0 1.5rem;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        #pricing-1790 .cs-flex-wrapper:after {
-            content: "";
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(232, 232, 232, 0.2) 0%, #e8e8e8 53.78%, rgba(232, 232, 232, 0.2) 100%);
-            opacity: 1;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            display: block;
-        }
-        #pricing-1790 .cs-price {
-            font-size: var(--headerFontSize);
-            font-weight: 900;
-            line-height: 1.2em;
-            text-align: inherit;
-            margin: 0;
-            color: var(--headerColor);
-        }
-        #pricing-1790 .cs-frequency {
-            font-size: 1rem;
-            line-height: 1.5em;
-            text-align: inherit;
-            margin: 0;
-            color: var(--bodyTextColor);
-            display: block;
-        }
-        #pricing-1790 .cs-item-text {
-            font-size: 1rem;
-            line-height: 1.5em;
-            text-align: left;
-            margin: 0 0 auto;
-            color: var(--bodyTextColor);
-            list-style-position: outside;
-            padding-left: 1.5rem;
-        }
-        #pricing-1790 .cs-button-solid {
-            font-size: 1rem;
-            font-weight: 700;
-            /* 46px - 56px */
-            line-height: clamp(2.875em, 5.5vw, 3.5em);
-            text-align: center;
-            text-decoration: none;
-            min-width: 9.375rem;
-            margin: 2rem 0 0 0;
-            /* prevents padding from adding to the width */
-            box-sizing: border-box;
-            padding: 0 1.5rem;
-            color: #fff;
-            background-color: var(--primary);
-            border-radius: 0.25rem;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-        }
-        #pricing-1790 .cs-button-solid:before {
-            content: "";
-            width: 0%;
-            height: 100%;
-            background: #000;
-            opacity: 1;
-            border-radius: 0.25rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: width 0.3s;
-        }
-        #pricing-1790 .cs-button-solid:hover:before {
-            width: 100%;
-        }
-        #pricing-1790 .cs-graphic {
-            width: 100%;
-            min-width: 120rem;
-            height: auto;
-            position: absolute;
-            bottom: -1rem;
-            left: 0rem;
-            z-index: -1;
-        }
-        #pricing-1790 .cs-dark {
-            display: none;
-        }
-        
-
-        #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid {
-            background-color: transparent; /* initially no background */
-            color: #000; /* black text initially */
-            border: 2px solid black; /* optional, for clarity */
-            transition: all 0.3s ease;
-        }
-
-        #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid:before {
-            background-color: #000; /* black background on hover */
-        }
-
-        #pricing-1790 .cs-item:not(.cs-popular) .cs-button-solid:hover {
-            color: #fff; /* white text on hover */
-        }
-        }
-
-        /* Tablet - 768px */
+    
+        /* TABLET */
         @media only screen and (min-width: 48rem) {
-        #pricing-1790 .cs-container {
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
+            #pricing-1790 .cs-container {
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+    
+            #pricing-1790 .cs-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+    
+            #pricing-1790 .cs-ul {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: stretch;
+            }
+    
+            #pricing-1790 .cs-card-group {
+                flex-direction: row;
+                align-items: stretch;
+            }
+    
+            #pricing-1790 .cs-item {
+                height: auto;
+                margin: 1.5rem 0;
+            }
+    
+            #pricing-1790 .cs-item.cs-popular {
+                margin: 0;
+            }
         }
-        #pricing-1790 .cs-content {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        #pricing-1790 .cs-ul {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            align-items: stretch;
-        }
-        #pricing-1790 .cs-card-group {
-            flex-direction: row;
-            align-items: stretch;
-        }
-        #pricing-1790 .cs-item {
-            height: auto;
-            margin: 1.5rem 0;
-        }
-        #pricing-1790 .cs-item.cs-popular {
-            margin: 0;
-        }
-        }
-        /* Small Desktop - 1024px */
+    
+        /* SMALL DESKTOP */
         @media only screen and (min-width: 64rem) {
-        #pricing-1790 .cs-ul {
-            width: 30%;
-            display: flex;
+            #pricing-1790 .cs-ul {
+                width: 30%;
+                display: flex;
+            }
+    
+            #pricing-1790 .cs-wrapper {
+                flex-direction: row;
+                gap: 1.25rem;
+            }
+    
+            #pricing-1790 .cs-card-group {
+                margin: 0;
+            }
+    
+            #pricing-1790 .cs-item {
+                min-height: 25rem;
+            }
         }
-        #pricing-1790 .cs-wrapper {
-            flex-direction: row;
-            gap: 1.25rem;
-        }
-        #pricing-1790 .cs-card-group {
-            margin: 0;
-        }
-        #pricing-1790 .cs-item {
-            min-height: 25rem;
-        }
-        }
-                                        
-
-        /* Add responsiveness */
+    
+        /* RESPONSIVE CONTACT/PACKAGES */
         @media (max-width: 768px) {
             .packages {
                 grid-template-columns: 1fr;
             }
-
+    
             .contact input,
             .contact textarea {
                 width: 80%;
@@ -690,7 +699,7 @@
     </section>
                                         
 
-    <!-- Packages Section -->
+    <!-- Packages Section 
     <section id="packages" class="packages-section">
         <h2>Our Packages</h2>
         <div class="packages">
@@ -714,6 +723,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- About Us Section -->
     <section id="about-us" class="about-us">
