@@ -14,6 +14,10 @@ def index():
 def gallery():
      return template('gallery')
 
+@route('/2BVSFIJI')
+def SHC2BVSFIJI():
+     return template('2BVSFIJI')
+
 @route('/competitions')
 def competitions():
      return template('competitions')
