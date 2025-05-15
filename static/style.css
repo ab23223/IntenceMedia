@@ -6,23 +6,34 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background: #fff;
-  color: #111;
+  font-family: 'Bebas Kai', sans-serif;
+  background: #191919;
+  color: #fff;
   line-height: 1.6;
 }
+h1, h2, h3 {
+  font-family: 'Bebas Kai', sans-serif;
+  letter-spacing: 1px;
+}
+
+@font-face {
+  font-family: 'Bebas Kai';
+  src: url('fonts/BebasKai.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* Navbar */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: #191919;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
 }
 
 .logo {
@@ -34,7 +45,7 @@ body {
 nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: #111;
+  color: #fff;
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -81,14 +92,13 @@ h1, h2 {
 
 p {
   font-size: 1rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 15px;
 }
 
 a {
-  color: #111;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid #ccc;
 }
 
 a:hover {
@@ -100,7 +110,7 @@ footer {
   text-align: center;
   padding: 40px 20px;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #fff;
   border-top: 1px solid #eee;
 }
 
@@ -116,5 +126,240 @@ footer {
     margin-right: 15px;
     display: inline-block;
     margin-top: 10px;
+  }
+}
+
+
+/* Custom Navbar Layout */
+.custom-nav {
+  position: relative;
+  display: flex;
+  justify-content: flex-start; /* left align left nav */
+  align-items: center;
+  padding: 3rem 4rem;
+}
+
+/* Left nav stays flex */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Center brand name absolutely centered */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  pointer-events: none; /* so clicks don’t interfere */
+  user-select: none; /* prevent selection */
+}
+
+/* Right nav positioned right */
+.nav-right {
+  margin-left: auto; /* push it all the way right */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* Instagram Icon */
+.nav-right i {
+  font-size: 1.2rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-right i:hover {
+  color: #555;
+}
+
+/* 2 Column Cover Grid */
+.gallery-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+.gallery-cover {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.gallery-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-cover:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-cover .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-cover:hover .overlay {
+  opacity: 1;
+}
+
+.section-heading {
+  text-align: center;
+  padding: 40px 0 10px;
+}
+
+.section-heading h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Contact Page Layout */
+.contact-container {
+  display: flex;
+  min-height: 80vh;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Left image takes half */
+.contact-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+
+/* Right form section */
+.contact-form-section {
+  flex: 1;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+}
+
+.contact-form-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-form-section p {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+.contact-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  background-color: #222;
+  color: #eee;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: transparent;
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+}
+
+.contact-form button {
+  width: 120px;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #333;
+}
+
+/* Contact info under form */
+.contact-info {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.contact-info strong {
+  font-weight: 700;
+}
+
+.contact-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .contact-image {
+    height: 250px;
+  }
+
+  .contact-form-section {
+    padding: 30px 20px;
   }
 }
