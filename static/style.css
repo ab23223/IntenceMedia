@@ -146,15 +146,19 @@ footer {
   gap: 20px;
 }
 
-/* Center brand name absolutely centered */
 .nav-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2.5rem;
   font-weight: bold;
-  pointer-events: none; /* so clicks don’t interfere */
-  user-select: none; /* prevent selection */
+  user-select: none;
+}
+
+.nav-center a {
+  pointer-events: auto; /* make link clickable */
+  text-decoration: none;
+  color: white;
 }
 
 /* Right nav positioned right */
@@ -274,7 +278,7 @@ footer {
 }
 
 .contact-form-section p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #fff;
   margin-bottom: 20px;
 }
@@ -285,6 +289,7 @@ footer {
   margin-bottom: 6px;
   display: block;
   color: #fff;
+  font-size: 1.5rem;
 }
 
 .contact-form input,
