@@ -399,153 +399,183 @@
   <div id="gallery"></div>
 
   <script>
-    fetch('/images')
-      .then(res => res.json())
-      .then(images => {
-        const gallery = document.getElementById('gallery');
+    const images = [
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696937/Training%2015-05/aypt0tzibovlhuebx6ys.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696925/Training%2015-05/b5v3s6m2bexdkqniov6d.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696942/Training%2015-05/b6hepju3ecaewj1dsoqv.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696927/Training%2015-05/bi0ke1fialmghpihgts3.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696921/Training%2015-05/buygroen4hvvydqbtjqb.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696938/Training%2015-05/couyukfpidx6n7mycip4.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696917/Training%2015-05/cqmmcb1ofthbhf8k0vzh.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696938/Training%2015-05/cvrrwwubvcrpv0rkfbs7.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696936/Training%2015-05/cwb5ult59hcosalnugpd.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696936/Training%2015-05/dfea0iq3tiskjs6jzcoz.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696941/Training%2015-05/g4k8ffkiuyyuebfxfdpk.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696920/Training%2015-05/g6debmtovt7maa3qxtgr.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696926/Training%2015-05/hm3ooo2ft4xubyvo6kbu.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696941/Training%2015-05/hnoabqlbxlftezhx8gqf.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696937/Training%2015-05/iogq8z00fffed3etgexy.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696919/Training%2015-05/iuliccei5gjuyxpnyk7g.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696932/Training%2015-05/ivolpyksg6zd9cz5uihi.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696920/Training%2015-05/jccqfq2qcivkennfrpam.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696931/Training%2015-05/mupnebcpdixxgki9wiww.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696922/Training%2015-05/nyvcrytuazfgjo6lvpjg.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696943/Training%2015-05/pbulbr4czshaf0tkiihh.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696924/Training%2015-05/ppvgnmgxye0h1te6w7yt.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696919/Training%2015-05/prbn9h9v1xrstgn8jjh9.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696921/Training%2015-05/r3gqxsrvglx36hkhvczj.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696940/Training%2015-05/srepprqasfcvb2bqfmwl.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696922/Training%2015-05/swo7gkha0okxuxxrgk5p.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696919/Training%2015-05/t52mtw0gpr0gvvsrgjwf.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696929/Training%2015-05/thzwjukqjgwsb8v1reya.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696925/Training%2015-05/tt2ncn3t0zalr66wafjx.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696941/Training%2015-05/uae97ikgswlnpdzqrszr.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696932/Training%2015-05/vfmvmycctn3rwih9lzf1.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696945/Training%2015-05/vml7wuy1qojwvegeikmy.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696928/Training%2015-05/vzbk9fdnepwoep5qnrop.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696942/Training%2015-05/wiogu7gzbf4im5qaxqkd.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696934/Training%2015-05/wiu6de9qlb1k93mthcgt.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696926/Training%2015-05/wqjeoz3ujxwauowikdzc.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696925/Training%2015-05/x5nenmbn9bgxe2estulg.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696929/Training%2015-05/xd6simief7rkhtwnikoy.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696939/Training%2015-05/xriuk7ywuioy0drxvk0w.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696928/Training%2015-05/yfjg2bq27euszv2bbrkg.jpg"
+    ];
 
-        // Create links and images inside gallery
-        images.forEach(url => {
-          const link = document.createElement('a');
-          link.href = url;                     // full-size image URL for lightbox
-          link.setAttribute('data-lightbox', 'gallery');
+    const gallery = document.getElementById('gallery');
 
-          const img = document.createElement('img');
-          const transformedUrl = url.replace('/upload/', '/upload/w_800,q_auto,f_auto/');
-          img.src = transformedUrl;
-          img.alt = 'Cloudinary Image';
-          img.style.width = '300px';
-          img.style.margin = '10px';
-          img.loading = 'lazy';
+    images.forEach(url => {
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('data-lightbox', 'gallery');
 
-          link.appendChild(img);
-          gallery.appendChild(link);
-        });
+      const img = document.createElement('img');
+      const transformedUrl = url.replace('/upload/', '/upload/w_800,q_auto,f_auto/');
+      img.src = transformedUrl;
+      img.alt = 'Cloudinary Image';
+      img.style.width = '300px';
+      img.style.margin = '10px';
+      img.loading = 'lazy';
 
-        // After images are loaded, setup lightbox with navigation
+      link.appendChild(img);
+      gallery.appendChild(link);
+    });
 
-        const links = gallery.querySelectorAll('a[data-lightbox]');
-        let imagesList = Array.from(links).map(link => link.href);
-        let currentIndex = 0;
+    const links = gallery.querySelectorAll('a[data-lightbox]');
+    let imagesList = Array.from(links).map(link => link.href);
+    let currentIndex = 0;
 
-        const lightboxContainer = document.createElement('div');
-        const lightboxImage = document.createElement('img');
-        const prevBtn = document.createElement('button');
-        const nextBtn = document.createElement('button');
+    const lightboxContainer = document.createElement('div');
+    const lightboxImage = document.createElement('img');
+    const prevBtn = document.createElement('button');
+    const nextBtn = document.createElement('button');
 
-        lightboxContainer.id = 'lightbox';
-        prevBtn.id = 'lightbox-prev';
-        nextBtn.id = 'lightbox-next';
+    lightboxContainer.id = 'lightbox';
+    prevBtn.id = 'lightbox-prev';
+    nextBtn.id = 'lightbox-next';
 
-        prevBtn.textContent = '‹';  // Left arrow
-        nextBtn.textContent = '›';  // Right arrow
+    prevBtn.textContent = '‹';
+    nextBtn.textContent = '›';
 
-        // Style buttons (you can move to CSS if preferred)
-        [prevBtn, nextBtn].forEach(btn => {
-          btn.style.position = 'absolute';
-          btn.style.top = '50%';
-          btn.style.transform = 'translateY(-50%)';
-          btn.style.fontSize = '3rem';
-          btn.style.color = '#fff';
-          btn.style.background = 'rgba(0,0,0,0.3)';
-          btn.style.border = 'none';
-          btn.style.padding = '0 15px';
-          btn.style.cursor = 'pointer';
-          btn.style.userSelect = 'none';
-          btn.style.zIndex = '10001';
-        });
+    [prevBtn, nextBtn].forEach(btn => {
+      btn.style.position = 'absolute';
+      btn.style.top = '50%';
+      btn.style.transform = 'translateY(-50%)';
+      btn.style.fontSize = '3rem';
+      btn.style.color = '#fff';
+      btn.style.background = 'rgba(0,0,0,0.3)';
+      btn.style.border = 'none';
+      btn.style.padding = '0 15px';
+      btn.style.cursor = 'pointer';
+      btn.style.userSelect = 'none';
+      btn.style.zIndex = '10001';
+    });
 
-        prevBtn.style.left = '20px';
-        nextBtn.style.right = '20px';
+    prevBtn.style.left = '20px';
+    nextBtn.style.right = '20px';
 
-        lightboxContainer.appendChild(lightboxImage);
-        lightboxContainer.appendChild(prevBtn);
-        lightboxContainer.appendChild(nextBtn);
-        document.body.appendChild(lightboxContainer);
+    lightboxContainer.appendChild(lightboxImage);
+    lightboxContainer.appendChild(prevBtn);
+    lightboxContainer.appendChild(nextBtn);
+    document.body.appendChild(lightboxContainer);
 
-        function openLightbox(index) {
-          currentIndex = index;
-          lightboxImage.src = imagesList[currentIndex];
-          lightboxContainer.classList.add('active');
-        }
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImage.src = imagesList[currentIndex];
+      lightboxContainer.classList.add('active');
+    }
 
-        function closeLightbox() {
-          lightboxContainer.classList.remove('active');
-        }
+    function closeLightbox() {
+      lightboxContainer.classList.remove('active');
+    }
 
-        function showPrev() {
-          currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
-          lightboxImage.src = imagesList[currentIndex];
-        }
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
+      lightboxImage.src = imagesList[currentIndex];
+    }
 
-        function showNext() {
-          currentIndex = (currentIndex + 1) % imagesList.length;
-          lightboxImage.src = imagesList[currentIndex];
-        }
+    function showNext() {
+      currentIndex = (currentIndex + 1) % imagesList.length;
+      lightboxImage.src = imagesList[currentIndex];
+    }
 
-        links.forEach((link, index) => {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            openLightbox(index);
-          });
-        });
-
-        lightboxContainer.addEventListener('click', e => {
-          // Close only if clicked outside image and buttons
-          if (e.target === lightboxContainer) {
-            closeLightbox();
-          }
-        });
-
-        prevBtn.addEventListener('click', e => {
-          e.stopPropagation();
-          showPrev();
-        });
-
-        nextBtn.addEventListener('click', e => {
-          e.stopPropagation();
-          showNext();
-        });
-
-        document.addEventListener('keydown', e => {
-          if (!lightboxContainer.classList.contains('active')) return;
-
-          if (e.key === 'ArrowLeft') {
-            showPrev();
-          } else if (e.key === 'ArrowRight') {
-            showNext();
-          } else if (e.key === 'Escape') {
-            closeLightbox();
-          }
-        });
-
-        // Touch swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        lightboxContainer.addEventListener('touchstart', e => {
-          touchStartX = e.changedTouches[0].screenX;
-        });
-
-        lightboxContainer.addEventListener('touchend', e => {
-          touchEndX = e.changedTouches[0].screenX;
-          handleGesture();
-        });
-
-        function handleGesture() {
-          const swipeDistance = touchEndX - touchStartX;
-          if (Math.abs(swipeDistance) > 50) {
-            if (swipeDistance > 0) {
-              showPrev();
-            } else {
-              showNext();
-            }
-          }
-        }
-      })
-      .catch(err => {
-        console.error('Failed to load images:', err);
+    links.forEach((link, index) => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        openLightbox(index);
       });
+    });
+
+    lightboxContainer.addEventListener('click', e => {
+      if (e.target === lightboxContainer) {
+        closeLightbox();
+      }
+    });
+
+    prevBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      showPrev();
+    });
+
+    nextBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      showNext();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightboxContainer.classList.contains('active')) return;
+
+      if (e.key === 'ArrowLeft') {
+        showPrev();
+      } else if (e.key === 'ArrowRight') {
+        showNext();
+      } else if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightboxContainer.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightboxContainer.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    function handleGesture() {
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 50) {
+        if (swipeDistance > 0) {
+          showPrev();
+        } else {
+          showNext();
+        }
+      }
+    }
   </script>
 
   <footer>
