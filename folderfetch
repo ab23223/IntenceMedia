@@ -1,5 +1,4 @@
-  <script>
-    fetch('/images')
+      fetch('/images')
       .then(res => res.json())
       .then(images => {
         const gallery = document.getElementById('gallery');
@@ -146,4 +145,3 @@
       .catch(err => {
         console.error('Failed to load images:', err);
       });
-  </script>
