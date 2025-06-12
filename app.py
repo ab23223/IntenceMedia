@@ -13,7 +13,7 @@ cloudinary.config(
 
 @route('/images')
 def get_images():
-    folder = 'Training 19-05'  # Your Cloudinary folder
+    folder = 'Choir '11-06'  # Your Cloudinary folder
     try:
         result = cloudinary.api.resources(type='upload', prefix=f'{folder}/', max_results=100)
         urls = [item['secure_url'] for item in result['resources']]
@@ -50,9 +50,9 @@ def Training1505():
 def Training1905():
      return template('Training-19-05')
 
-@route('/Training-15-05')
-def Training1505():
-     return template('Training-15-05')
+@route('/ChoirPractice11-06')
+def ChoirPractice1106():
+     return template('ChoirPractice11-06')
 
 @route('/about')
 def about():
