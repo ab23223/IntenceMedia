@@ -1,75 +1,53 @@
-from bottle import run,route,template, static_file, response
-import requests
-import cloudinary
-import cloudinary.api
-import json
+from bottle import run, route, template, static_file, response
 
-# 🔐 Your Cloudinary credentials
-cloudinary.config(
-    cloud_name='dfqreujbo',
-    api_key='467879367759351',
-    api_secret='tgJspwPABIOzKQrG3YSeb7YAx2g'
-)
-
-@route('/images')
-def get_images():
-    folder = 'Choir '11-06'  # Your Cloudinary folder
-    try:
-        result = cloudinary.api.resources(type='upload', prefix=f'{folder}/', max_results=100)
-        urls = [item['secure_url'] for item in result['resources']]
-        response.content_type = 'application/json'
-        return json.dumps(urls)
-    except Exception as e:
-        response.status = 500
-        return str(e)
-
-
+# Static file serving
 @route('/static/<filepath:path>')
 def server_static(filepath):
-     return static_file(filepath, root='./static')
+    return static_file(filepath, root='./static')
 
 
+# Main routes
 @route('/')
 def index():
-     return template('index')
-
+    return template('index')
 
 @route('/category-sports')
 def categorysports():
-     return template('category-sports')
+    return template('category-sports')
 
 @route('/category-automotive')
 def categoryautomotive():
-     return template('category-automotive')
+    return template('category-automotive')
 
 @route('/Training-15-05')
 def Training1505():
-     return template('Training-15-05')
+    return template('Training-15-05')
 
 @route('/Training-19-05')
 def Training1905():
-     return template('Training-19-05')
+    return template('Training-19-05')
 
-@route('/ChoirPractice11-06')
-def ChoirPractice1106():
-     return template('ChoirPractice11-06')
+@route('/Choir-11-06')
+def Choir1106():
+    return template('Choir-11-06')  # Make sure you renamed your template to match this route
 
 @route('/about')
 def about():
-     return template('about')
+    return template('about')
 
 @route('/contact')
 def contact():
-     return template('contact')
+    return template('contact')
 
 @route('/googlec84cb0ca6911faab.html')
-def googlec84cb0ca6911faab():
-     return template('googlec84cb0ca6911faab.html')
+def google_verification():
+    return template('googlec84cb0ca6911faab.html')
 
 @route('/sitemap.xml')
 def sitemap():
-     return template('sitemap.xml')
+    response.content_type = 'application/xml'
+    return template('sitemap.xml')
 
 
-#main
+# Run the server
 run(reloader=True)

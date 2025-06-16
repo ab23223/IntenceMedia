@@ -479,8 +479,11 @@
   <div id="gallery"></div>
 
   <script>
+    // Replace these URLs with your actual Cloudinary image links
     const images = [
       "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696939/Training%2015-05/xriuk7ywuioy0drxvk0w.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696939/Training%2015-05/anotherimage.jpg",
+      // Add more URLs here
     ];
 
     const gallery = document.getElementById('gallery');
@@ -493,7 +496,7 @@
       const img = document.createElement('img');
       const transformedUrl = url.replace('/upload/', '/upload/w_800,q_auto,f_auto/');
       img.src = transformedUrl;
-      img.alt = 'Cloudinary Image';
+      img.alt = 'Gallery Image';
       img.style.width = '300px';
       img.style.margin = '10px';
       img.loading = 'lazy';
@@ -502,123 +505,112 @@
       gallery.appendChild(link);
     });
 
-    const links = gallery.querySelectorAll('a[data-lightbox]');
-    let imagesList = Array.from(links).map(link => link.href);
-    let currentIndex = 0;
+    function setupLightbox() {
+      const links = gallery.querySelectorAll('a[data-lightbox]');
+      let imagesList = Array.from(links).map(link => link.href);
+      let currentIndex = 0;
 
-    const lightboxContainer = document.createElement('div');
-    const lightboxImage = document.createElement('img');
-    const prevBtn = document.createElement('button');
-    const nextBtn = document.createElement('button');
+      const lightboxContainer = document.createElement('div');
+      const lightboxImage = document.createElement('img');
+      const prevBtn = document.createElement('button');
+      const nextBtn = document.createElement('button');
 
-    lightboxContainer.id = 'lightbox';
-    prevBtn.id = 'lightbox-prev';
-    nextBtn.id = 'lightbox-next';
+      lightboxContainer.id = 'lightbox';
+      prevBtn.id = 'lightbox-prev';
+      nextBtn.id = 'lightbox-next';
 
-    prevBtn.textContent = '‹';
-    nextBtn.textContent = '›';
+      prevBtn.textContent = '‹';
+      nextBtn.textContent = '›';
 
-    [prevBtn, nextBtn].forEach(btn => {
-      btn.style.position = 'absolute';
-      btn.style.top = '50%';
-      btn.style.transform = 'translateY(-50%)';
-      btn.style.fontSize = '3rem';
-      btn.style.color = '#fff';
-      btn.style.background = 'rgba(0,0,0,0.3)';
-      btn.style.border = 'none';
-      btn.style.padding = '0 15px';
-      btn.style.cursor = 'pointer';
-      btn.style.userSelect = 'none';
-      btn.style.zIndex = '10001';
-    });
-
-    prevBtn.style.left = '20px';
-    nextBtn.style.right = '20px';
-
-    lightboxContainer.appendChild(lightboxImage);
-    lightboxContainer.appendChild(prevBtn);
-    lightboxContainer.appendChild(nextBtn);
-    document.body.appendChild(lightboxContainer);
-
-    function openLightbox(index) {
-      currentIndex = index;
-      lightboxImage.src = imagesList[currentIndex];
-      lightboxContainer.classList.add('active');
-    }
-
-    function closeLightbox() {
-      lightboxContainer.classList.remove('active');
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
-      lightboxImage.src = imagesList[currentIndex];
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % imagesList.length;
-      lightboxImage.src = imagesList[currentIndex];
-    }
-
-    links.forEach((link, index) => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        openLightbox(index);
+      [prevBtn, nextBtn].forEach(btn => {
+        btn.style.position = 'absolute';
+        btn.style.top = '50%';
+        btn.style.transform = 'translateY(-50%)';
+        btn.style.fontSize = '3rem';
+        btn.style.color = '#fff';
+        btn.style.background = 'rgba(0,0,0,0.3)';
+        btn.style.border = 'none';
+        btn.style.padding = '0 15px';
+        btn.style.cursor = 'pointer';
+        btn.style.userSelect = 'none';
+        btn.style.zIndex = '10001';
       });
-    });
 
-    lightboxContainer.addEventListener('click', e => {
-      if (e.target === lightboxContainer) {
-        closeLightbox();
+      prevBtn.style.left = '20px';
+      nextBtn.style.right = '20px';
+
+      lightboxContainer.appendChild(lightboxImage);
+      lightboxContainer.appendChild(prevBtn);
+      lightboxContainer.appendChild(nextBtn);
+      document.body.appendChild(lightboxContainer);
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImage.src = imagesList[currentIndex];
+        lightboxContainer.classList.add('active');
       }
-    });
 
-    prevBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      showPrev();
-    });
-
-    nextBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      showNext();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (!lightboxContainer.classList.contains('active')) return;
-
-      if (e.key === 'ArrowLeft') {
-        showPrev();
-      } else if (e.key === 'ArrowRight') {
-        showNext();
-      } else if (e.key === 'Escape') {
-        closeLightbox();
+      function closeLightbox() {
+        lightboxContainer.classList.remove('active');
       }
-    });
 
-    let touchStartX = 0;
-    let touchEndX = 0;
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
+        lightboxImage.src = imagesList[currentIndex];
+      }
 
-    lightboxContainer.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
+      function showNext() {
+        currentIndex = (currentIndex + 1) % imagesList.length;
+        lightboxImage.src = imagesList[currentIndex];
+      }
 
-    lightboxContainer.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleGesture();
-    });
+      links.forEach((link, index) => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          openLightbox(index);
+        });
+      });
 
-    function handleGesture() {
-      const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 50) {
-        if (swipeDistance > 0) {
-          showPrev();
-        } else {
-          showNext();
+      lightboxContainer.addEventListener('click', e => {
+        if (e.target === lightboxContainer) {
+          closeLightbox();
         }
-      }
-    }
-  </script>
+      });
 
+      prevBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        showPrev();
+      });
+
+      nextBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        showNext();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (!lightboxContainer.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') showPrev();
+        else if (e.key === 'ArrowRight') showNext();
+        else if (e.key === 'Escape') closeLightbox();
+      });
+
+      lightboxContainer.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      lightboxContainer.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDistance = touchEndX - touchStartX;
+        if (Math.abs(swipeDistance) > 50) {
+          if (swipeDistance > 0) showPrev();
+          else showNext();
+        }
+      });
+    }
+
+    setupLightbox();
+  </script>
+  
   <footer>
     <p>&copy; 2025 Intence Media. All rights reserved.</p>
   </footer>
