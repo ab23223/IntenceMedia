@@ -10,7 +10,7 @@
 <body>
     <header class="navbar custom-nav">
         <div class="nav-left">
-            <a href="//IntenceMedia/">Work</a>
+            <a href="/IntenceMedia">Work</a>
             <a href="contact">Contact</a>
             <a href="about">About</a>
         </div>
@@ -405,22 +405,26 @@
     <main class="contact-container">
         <!-- Left image -->
         <div class="contact-image">
-            <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1738719532/GM_SHOW_9_jswj4t.jpg" alt="Contact Intence Media" />
+            <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1750804884/Lightroom_-_GM_SHOW_28_oleksa.jpg" alt="Contact Intence Media" />
         </div>
 
         <!-- Right contact form and info -->
         <div class="contact-form-section">
             
-            <form class="contact-form" action="mailto:intencemediaofficial@gmail.com" method="POST" enctype="text/plain">
+            <form class="contact-form" action="https://formspree.io/f/mvgzryqz" method="POST"> enctype="text/plain">
                 <label for="name">NAME</label>
                 <input type="text" id="name" name="Name" required placeholder="YOUR NAME..." />
 
                 <label for="email">EMAIL ADDRESS*</label>
                 <input type="email" id="email" name="Email" required placeholder="YOUR EMAIL..." />
 
+                <label for="email">PHONE NUMBER*</label>
+                <input type="tel" name="contact" placeholder="Contact No">
+
                 <label for="message">MESSAGE</label>
                 <textarea id="message" name="Message" required placeholder="YOUR MESSAGE..."></textarea>
 
+                <button type="reset" >Cancel</button>
                 <button type="submit">SEND</button>
             </form>
 
