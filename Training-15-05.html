@@ -486,6 +486,25 @@
         height: 28px;
       }
     }
+    /* Gallery image sizing and optimization */
+    #gallery img {
+      width: 428px;
+      height: 224px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 20px;
+      break-inside: avoid;
+      transition: transform 0.3s ease;
+      border-radius: 6px;
+    }
+
+    /* Responsive resizing on mobile */
+    @media (max-width: 600px) {
+      #gallery img {
+        width: 350px;
+        height: 183px;
+      }
+    }
   </style>
 
   <header class="navbar custom-nav">
@@ -558,7 +577,7 @@
       "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696928/Training%2015-05/yfjg2bq27euszv2bbrkg.jpg"
     ];
 
-    const gallery = document.getElementById('gallery');
+  const gallery = document.getElementById('gallery');
 
   images.forEach((url) => {
     const link = document.createElement('a');
@@ -566,11 +585,14 @@
     link.setAttribute('data-lightbox', 'gallery');
 
     const img = document.createElement('img');
-    img.src = url.replace('/upload/', '/upload/w_800,q_auto,f_auto/');
-    img.alt = 'Training Photo';
-    img.style.width = '300px';
-    img.style.margin = '10px';
+    const transformedUrl = url.replace('/upload/', '/upload/w_428,h_224,c_fill,f_auto,q_auto/');
+    img.src = transformedUrl;
+    img.alt = 'Gallery Image';
+    img.width = 428;
+    img.height = 224;
     img.loading = 'lazy';
+    img.style.margin = '10px';
+    img.style.objectFit = 'cover';
 
     link.appendChild(img);
     gallery.appendChild(link);
@@ -626,7 +648,7 @@
 
   function openLightbox(index) {
     currentIndex = index;
-    lightboxImage.src = imagesList[currentIndex];
+    lightboxImage.src = imagesList[currentIndex].replace('/upload/', '/upload/w_1600,q_auto,f_auto/');
     lightboxContainer.style.display = 'flex';
   }
 
