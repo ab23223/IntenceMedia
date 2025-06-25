@@ -381,18 +381,55 @@
 
             /* Responsive adjustments */
             @media (max-width: 900px) {
-            .contact-container {
-                flex-direction: column;
-                margin: 20px;
+                .contact-container {
+                    flex-direction: column;
+                    margin: 20px;
+                }
+
+                .contact-image {
+                    height: 250px;
+                }
+
+                .contact-form-section {
+                    padding: 30px 20px;
+                }
             }
 
-            .contact-image {
-                height: 250px;
-            }
+            @media (max-width: 768px) {
+                .custom-nav {
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 1rem 2rem;
+                }
 
-            .contact-form-section {
-                padding: 30px 20px;
-            }
+                .nav-center {
+                    position: static;
+                    transform: none;
+                    font-size: 2rem;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+
+                .nav-left {
+                    order: 2; /* Move nav links after the center heading */
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .nav-right {
+                    order: 3; /* Instagram last */
+                    justify-content: center;
+                    margin-bottom: 10px;
+                }
+
+                .nav-right a img {
+                    width: 28px;
+                    height: 28px;
+                }
             }
 
         </style>
