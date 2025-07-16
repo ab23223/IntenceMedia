@@ -11,9 +11,9 @@ def server_static(filepath):
 def index():
     return template('index')
 
-@route('/category-sports')
-def categorysports():
-    return template('category-sports')
+@route('/First-V-Training-14-07')
+def FirstVTraining():
+    return template('First-V-Training-14-07')
 
 @route('/category-automotive')
 def categoryautomotive():
