@@ -15,8 +15,8 @@
     <header class="navbar custom-nav">
         <div class="nav-left">
             <a href="/IntenceMedia">Work</a>
-            <a href="contact">Contact</a>
-            <a href="about">About</a>
+            <a href="/IntenceMedia/contact">Contact</a>
+            <a href="/IntenceMedia/about">About</a>
         </div>
         <div class="nav-center">
             <a href="/IntenceMedia/">INTENCE MEDIA</a>
@@ -26,6 +26,7 @@
                 <img src="https://www.citypng.com/public/uploads/preview/hd-square-white-instagram-logo-icon-png-701751695118869dhkjddwaed.png" alt="Instagram" style="width: 24px; height: 24px;">
             </a>
         </div>
+
         <style>
         /* Reset & Base */
         * {
@@ -442,22 +443,23 @@
         <!-- Right contact form and info -->
         <div class="contact-form-section">
             
-            <form class="contact-form" action="https://formspree.io/f/mvgzryqz" method="POST"> enctype="text/plain">
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvgzryqz" method="POST">
                 <label for="name">NAME</label>
                 <input type="text" id="name" name="Name" required placeholder="YOUR NAME..." />
 
                 <label for="email">EMAIL ADDRESS*</label>
                 <input type="email" id="email" name="Email" required placeholder="YOUR EMAIL..." />
 
-                <label for="email">PHONE NUMBER*</label>
-                <input type="tel" name="contact" placeholder="Contact No">
+                <label for="phone">PHONE NUMBER*</label>
+                <input type="tel" id="phone" name="contact" placeholder="Contact No">
 
                 <label for="message">MESSAGE</label>
                 <textarea id="message" name="Message" required placeholder="YOUR MESSAGE..."></textarea>
 
-                <button type="reset" >Cancel</button>
+                <button type="reset">Cancel</button>
                 <button type="submit">SEND</button>
             </form>
+
 
             <div class="contact-info">
                 <p><strong>📞 Phone:</strong> +64 204 511 510</p>
@@ -466,6 +468,52 @@
             </div>
         </div>
     </main>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Stop default form submission
+            const formData = new FormData(form);
+
+            const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+            showThankYouPopup();
+            form.reset();
+            } else {
+            alert('Oops! There was a problem sending your message.');
+            }
+        });
+
+        function showThankYouPopup() {
+            // Create a simple popup div
+            const popup = document.createElement('div');
+            popup.textContent = 'Thank you for your message!';
+            popup.style.position = 'fixed';
+            popup.style.top = '20px';
+            popup.style.right = '20px';
+            popup.style.padding = '15px 25px';
+            popup.style.backgroundColor = '#222';
+            popup.style.color = '#fff';
+            popup.style.fontFamily = "'Bebas Kai', sans-serif";
+            popup.style.fontSize = '1.2rem';
+            popup.style.borderRadius = '5px';
+            popup.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
+            popup.style.zIndex = 9999;
+
+            document.body.appendChild(popup);
+
+            // Remove popup after 3 seconds
+            setTimeout(() => {
+            popup.remove();
+            }, 3000);
+        }
+        </script>
+
 
     <footer>
         <p>&copy; 2025 Intence Media. All rights reserved.</p>
