@@ -19,7 +19,6 @@ def FirstVTraining():
 def categoryautomotive():
     return template('category-automotive')
 
-
 @route('/Training-15-05')
 def Training1505():
     return template('Training-15-05')
@@ -35,7 +34,6 @@ def Choir1106():
 @route('/First-XV-14-06')
 def FirstXV1406():
     return template('First-XV-14-06')  # Make sure you renamed your template to match this route
-
 
 @route('/about')
 def about():

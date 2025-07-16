@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="static/style.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Contact | Intence Media</title>
     <meta name="description" content="Contact Intence Media — freelance photographer based in Auckland, New Zealand. Enquiries, work, photo opportunities.">
     <meta name="keywords" content="Intence Media, sports photography NZ, automotive photography, school sports photos, car photography, contact, info, email, Intense Media, Intence Media NZ, Rugby Photography, Photography, freelance">
@@ -443,7 +442,8 @@
         <!-- Right contact form and info -->
         <div class="contact-form-section">
             
-            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvgzryqz" method="POST">
+            <!-- Contact Form Section -->
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xblkjbnr" method="POST" onsubmit="submitForm(event)">
                 <label for="name">NAME</label>
                 <input type="text" id="name" name="Name" required placeholder="YOUR NAME..." />
 
@@ -451,7 +451,7 @@
                 <input type="email" id="email" name="Email" required placeholder="YOUR EMAIL..." />
 
                 <label for="phone">PHONE NUMBER*</label>
-                <input type="tel" id="phone" name="contact" placeholder="Contact No">
+                <input type="tel" id="phone" name="Contact" placeholder="Contact No" />
 
                 <label for="message">MESSAGE</label>
                 <textarea id="message" name="Message" required placeholder="YOUR MESSAGE..."></textarea>
@@ -460,61 +460,71 @@
                 <button type="submit">SEND</button>
             </form>
 
-
+            <!-- Contact Info -->
             <div class="contact-info">
                 <p><strong>📞 Phone:</strong> +64 204 511 510</p>
                 <p><strong>✉️ Email:</strong> <a href="mailto:intencemediaofficial@gmail.com">intencemediaofficial@gmail.com</a></p>
                 <p><strong>📍 Address:</strong> Auckland, NZ</p>
             </div>
+
+            <!-- Thank You Pop-Up -->
+            <div id="thank-you-popup" style="
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            z-index: 1000;
+            font-family: 'Bebas Kai', sans-serif;">
+            Thank you for your message! We’ll get back to you soon.
+            </div>
         </div>
-    </main>
 
-    <script>
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Stop default form submission
-            const formData = new FormData(form);
+        <!-- Submit Script -->
+        <script>
+            function submitForm(event) {
+                event.preventDefault(); // Stop normal form submit
 
-            const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-            });
+                const form = document.getElementById('contact-form');
+                const popup = document.getElementById('thank-you-popup');
+                const formData = new FormData(form);
 
-            if (response.ok) {
-            showThankYouPopup();
-            form.reset();
-            } else {
-            alert('Oops! There was a problem sending your message.');
+                fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+                })
+                .then(response => {
+                if (response.ok) {
+                    // Show popup
+                    popup.style.display = 'block';
+
+                    // Hide after 3 seconds
+                    setTimeout(() => {
+                    popup.style.display = 'none';
+                    }, 3000);
+
+                    // Reset form fields
+                    form.reset();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+                })
+                .catch(error => {
+                console.error('Error submitting form:', error);
+                alert('There was a problem sending your message.');
+                });
             }
-        });
-
-        function showThankYouPopup() {
-            // Create a simple popup div
-            const popup = document.createElement('div');
-            popup.textContent = 'Thank you for your message!';
-            popup.style.position = 'fixed';
-            popup.style.top = '20px';
-            popup.style.right = '20px';
-            popup.style.padding = '15px 25px';
-            popup.style.backgroundColor = '#222';
-            popup.style.color = '#fff';
-            popup.style.fontFamily = "'Bebas Kai', sans-serif";
-            popup.style.fontSize = '1.2rem';
-            popup.style.borderRadius = '5px';
-            popup.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
-            popup.style.zIndex = 9999;
-
-            document.body.appendChild(popup);
-
-            // Remove popup after 3 seconds
-            setTimeout(() => {
-            popup.remove();
-            }, 3000);
-        }
-        </script>
-
-
+            </script>
+                       
+    </main>
     <footer>
         <p>&copy; 2025 Intence Media. All rights reserved.</p>
     </footer>
