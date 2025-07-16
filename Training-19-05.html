@@ -701,6 +701,10 @@
       swipeDistance > 0 ? showPrev() : showNext();
     }
   }
+
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
   </script>
 
   <footer>

@@ -522,8 +522,12 @@
                 alert('There was a problem sending your message.');
                 });
             }
+
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
             </script>
-                       
+
     </main>
     <footer>
         <p>&copy; 2025 Intence Media. All rights reserved.</p>
