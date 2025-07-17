@@ -11,6 +11,13 @@
 
 <body>
   <style>
+
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+    }
+
     /* Reset & Base */
     * {
       margin: 0;
@@ -671,7 +678,7 @@
     }
 
     setupLightbox();
-    
+
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
