@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="static/style.css" />
     <link rel="stylesheet" href="/static/assets/lightbox.css" />
-    <title>Choir Practice 11-06| Intence Media</title>
-    <meta name="description" content="Photos from Sacred Hearts Choir practicing for the Big Sing, Intence Media — freelance photography based in Auckland, New Zealand.">
+    <title>{{title}}| Intence Media</title>
+    <meta name="description" content="Photos from Sacred Hearts 1st XV vs De La Salle, Intence Media — freelance photography based in Auckland, New Zealand.">
     <meta name="keywords" content="Intence Media, sports photography NZ, automotive photography, school sports photos, car photography, New Zealand, Intense Media, Intence Media NZ, Rugby Photography, Photography, freelance, First 15, First XV">
     <meta name="author" content="Intence Media">
-    <link rel="canonical" href="https://ab23223.github.io/IntenceMedia/Choir-11-06"><title>Choir Practice 11-06</title>
+    <link rel="canonical" href="https://ab23223.github.io/IntenceMedia/First-XV-14-06">
     <style>
 
     img {
@@ -386,41 +386,39 @@
       font-size: 3rem;
     }
 
-      #lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-  }
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
 
-  #lightbox.active {
-    display: flex;
-  }
+    #lightbox.active {
+      display: flex;
+    }
 
-  #lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
 
-  #lightbox-prev,
-  #lightbox-next {
-    display: none;
-  }
+    #lightbox-prev,
+    #lightbox-next {
+      display: none;
+    }
 
-  #lightbox.active #lightbox-prev,
-  #lightbox.active #lightbox-next {
-    display: block;
-  }
-
-
+    #lightbox.active #lightbox-prev,
+    #lightbox.active #lightbox-next {
+      display: block;
+    }
     </style>
 
 </head>
@@ -446,113 +444,16 @@
   </header>
 
   <section>
-    <h1>Choir Practice 11-06</h1>
-    <p>The final practice before SHC Choir heads to the Big Sing Competition.</p>
+    <h1>{{title}}</h1>
+    <p>{{desc}}</p>
   </section>
 
   <h2>Gallery</h2>
   <div id="gallery"></div>
 
   <script>
-    // Replace these URLs with your actual Cloudinary image links
     const images = [
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692296/Choir%2011-06/10.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692398/Choir%2011-06/100.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692400/Choir%2011-06/102.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692400/Choir%2011-06/104.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692404/Choir%2011-06/105.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692403/Choir%2011-06/106.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692406/Choir%2011-06/107.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692406/Choir%2011-06/108.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692410/Choir%2011-06/109.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692297/Choir%2011-06/11.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692410/Choir%2011-06/111.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692413/Choir%2011-06/113.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692414/Choir%2011-06/115.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692298/Choir%2011-06/12.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692299/Choir%2011-06/13.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692300/Choir%2011-06/14.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692302/Choir%2011-06/15.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692302/Choir%2011-06/16.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692303/Choir%2011-06/17.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692304/Choir%2011-06/18.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692306/Choir%2011-06/19.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692001/Choir%2011-06/2.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692306/Choir%2011-06/20.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692308/Choir%2011-06/21.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692310/Choir%2011-06/22.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692309/Choir%2011-06/23.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692311/Choir%2011-06/24.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692314/Choir%2011-06/25.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692314/Choir%2011-06/26.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692314/Choir%2011-06/27.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692318/Choir%2011-06/28.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692316/Choir%2011-06/29.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692001/Choir%2011-06/3.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692317/Choir%2011-06/30.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692319/Choir%2011-06/31.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692321/Choir%2011-06/32.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692321/Choir%2011-06/33.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692322/Choir%2011-06/34.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692324/Choir%2011-06/35.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692325/Choir%2011-06/36.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692333/Choir%2011-06/39.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692003/Choir%2011-06/4.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692332/Choir%2011-06/41.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692337/Choir%2011-06/42.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692332/Choir%2011-06/43.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692334/Choir%2011-06/46.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692335/Choir%2011-06/47.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692334/Choir%2011-06/48.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692341/Choir%2011-06/49.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692003/Choir%2011-06/5.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692338/Choir%2011-06/50.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692344/Choir%2011-06/51.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692342/Choir%2011-06/54.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692350/Choir%2011-06/56.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692344/Choir%2011-06/57.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692345/Choir%2011-06/58.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692350/Choir%2011-06/59.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692004/Choir%2011-06/6.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692349/Choir%2011-06/60.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692349/Choir%2011-06/61.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692350/Choir%2011-06/62.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692351/Choir%2011-06/63.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692355/Choir%2011-06/64.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692364/Choir%2011-06/65.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692358/Choir%2011-06/66.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692357/Choir%2011-06/67.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692362/Choir%2011-06/68.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692359/Choir%2011-06/69.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692005/Choir%2011-06/7.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692361/Choir%2011-06/70.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692362/Choir%2011-06/71.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692363/Choir%2011-06/72.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692365/Choir%2011-06/73.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692366/Choir%2011-06/74.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692374/Choir%2011-06/75.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692370/Choir%2011-06/76.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692370/Choir%2011-06/77.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692374/Choir%2011-06/78.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692373/Choir%2011-06/79.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692294/Choir%2011-06/8.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692373/Choir%2011-06/80.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692375/Choir%2011-06/81.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692378/Choir%2011-06/82.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692379/Choir%2011-06/84.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692383/Choir%2011-06/88.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692383/Choir%2011-06/89.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692295/Choir%2011-06/9.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692388/Choir%2011-06/90.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692387/Choir%2011-06/91.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692386/Choir%2011-06/92.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692387/Choir%2011-06/93.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692390/Choir%2011-06/94.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692389/Choir%2011-06/95.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692392/Choir%2011-06/96.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692393/Choir%2011-06/97.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692397/Choir%2011-06/98.jpg",
-        "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692399/Choir%2011-06/99.jpg"
+
     ];
 
     const gallery = document.getElementById('gallery');
@@ -684,7 +585,6 @@
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
-
   </script>
   
   <footer>
