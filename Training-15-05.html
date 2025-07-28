@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="static/style.css" />
   <link rel="stylesheet" href="/static/assets/lightbox.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
   <style>
 
     img {
@@ -42,31 +40,6 @@
     }
 
     /* Navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #191919;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: #777;
-    }
 
     /* Gallery Grid */
     .gallery {
@@ -124,29 +97,16 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav a {
-        margin-left: 0;
-        margin-right: 15px;
-        display: inline-block;
-        margin-top: 10px;
-      }
-    }
 
     /* Custom Navbar Layout */
     .custom-nav {
       position: relative;
       display: flex;
-      justify-content: flex-start; /* left align left nav */
+      justify-content: flex-start;
       align-items: center;
       padding: 3rem 4rem;
     }
 
-    /* Left nav stays flex */
     .nav-left {
       display: flex;
       align-items: center;
@@ -162,14 +122,13 @@
       user-select: none;
     }
     .nav-center a {
-      pointer-events: auto; /* make link clickable */
+      pointer-events: auto;
       text-decoration: none;
       color: white;
     }
 
-    /* Right nav positioned right */
     .nav-right {
-      margin-left: auto; /* push it all the way right */
+      margin-left: auto;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -245,7 +204,6 @@
       background: transparent;
     }
 
-    /* Left image takes half */
     .contact-image {
       flex: 1;
       overflow: hidden;
@@ -258,7 +216,6 @@
       border-radius: 10px;
     }
 
-    /* Right form section */
     .contact-form-section {
       flex: 1;
       padding: 40px 50px;
@@ -278,7 +235,6 @@
       margin-bottom: 20px;
     }
 
-    /* Form styles */
     .contact-form label {
       font-weight: 600;
       margin-bottom: 6px;
@@ -322,7 +278,6 @@
       background: #333;
     }
 
-    /* Contact info under form */
     .contact-info {
       margin-top: 30px;
       font-size: 1rem;
@@ -340,7 +295,6 @@
       text-decoration: underline;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 900px) {
       .contact-container {
         flex-direction: column;
@@ -354,7 +308,7 @@
       }
     }
 
-        #gallery {
+    #gallery {
       column-count: 3;
       column-gap: 20px;
       max-width: 1200px;
@@ -365,6 +319,7 @@
     #gallery img {
       width: 100%;
       height: auto;
+      display: block;
       margin-bottom: 20px;
       break-inside: avoid;
       transition: transform 0.3s ease;
@@ -386,133 +341,88 @@
       }
     }
 
+    @media (max-width: 768px) {
+    .custom-nav {
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      gap: 1rem;
+    }
+
+    .nav-left,
+    .nav-right {
+      justify-content: center;
+      width: 100%;
+      gap: 1.2rem;
+    }
+
+    .nav-center {
+      position: static;
+      transform: none;
+      margin: 0;
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    .nav-left {
+      order: 2;
+      flex-wrap: wrap;
+    }
+
+    .nav-center {
+      order: 1;
+    }
+
+    .nav-right {
+      order: 3;
+    }
+  }
+
 
     h2 {
       text-align: center;
       font-size: 3rem;
     }
 
-    /* Lightbox base container */
     #lightbox {
-      display: none;                 /* hidden by default */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;                  /* prevent horizontal scrolling */
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-      overflow: hidden;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
     }
 
-    /* Make visible when active */
     #lightbox.active {
-      display: flex;
+        display: flex;
     }
 
-    /* Lightbox image styling */
     #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      z-index: 10002;
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
-    /* Lightbox arrows (hidden by default) */
     #lightbox-prev,
     #lightbox-next {
-      display: none;
+        display: none;
     }
 
-    /* Show arrows only when active */
     #lightbox.active #lightbox-prev,
     #lightbox.active #lightbox-next {
-      display: block;
+        display: block;
     }
 
-    /* Arrow buttons styling */
-    #lightbox-prev,
-    #lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3rem;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.3);
-      border: none;
-      padding: 0 15px;
-      cursor: pointer;
-      user-select: none;
-      z-index: 10003;
-    }
 
-    #lightbox-prev {
-      left: 20px;
-    }
-
-    #lightbox-next {
-      right: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .custom-nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 2rem;
-      }
-
-      .nav-center {
-        position: static;
-        transform: none;
-        font-size: 2rem;
-        margin-bottom: 15px;
-        text-align: center;
-      }
-
-      .nav-left {
-        order: 2; /* Move nav links after the center heading */
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-
-      .nav-right {
-        order: 3; /* Instagram last */
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-
-      .nav-right a img {
-        width: 28px;
-        height: 28px;
-      }
-    }
-    /* Gallery image sizing and optimization */
-    #gallery img {
-      width: 428px;
-      height: 224px;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 20px;
-      break-inside: avoid;
-      transition: transform 0.3s ease;
-      border-radius: 6px;
-    }
-
-    /* Responsive resizing on mobile */
-    @media (max-width: 600px) {
-      #gallery img {
-        width: 350px;
-        height: 183px;
-      }
-    }
   </style>
+
+</head>
+<body>
 
   <header class="navbar custom-nav">
     <div class="nav-left">
