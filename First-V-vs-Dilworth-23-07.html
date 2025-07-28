@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>First V vs Dilworth | Intence Media</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="/static/assets/lightbox.css" />
     <meta name="description" content="Photos of Sacred Hearts 1st V vs Dilworth, Intence Media — freelance photography based in Auckland, New Zealand.">
     <meta name="keywords" content="Intence Media, sports photography NZ, automotive photography, school sports photos, car photography, New Zealand, Intense Media, Intence Media NZ, Rugby Photography, Photography, freelance, First 15, First XV">
     <meta name="author" content="Intence Media">
@@ -79,9 +81,7 @@
       display: block;
     }
     .gallery-item img {
-      width: auto;
-      max-width: 373px;
-      max-height: 467px;
+      width: 100%;
       height: auto;
       display: block;
       transition: transform 0.3s ease;
@@ -196,9 +196,7 @@
       display: block;
     }
     .gallery-cover img {
-      width: auto;
-      max-width: 373px;
-      max-height: 467px;
+      width: 100%;
       height: auto;
       display: block;
     }
@@ -359,9 +357,7 @@
     }
 
     #gallery img {
-      width: auto;
-      max-width: 373px;
-      max-height: 467px;
+      width: 100%;
       height: auto;
       display: block;
       margin-bottom: 20px;
@@ -382,24 +378,6 @@
     @media (max-width: 600px) {
       #gallery {
         column-count: 1;
-      }
-      
-    }
- 
-    @media (max-width: 480px) {
-      .gallery-item img,
-      .gallery-cover img,
-      #gallery img {
-        max-width: 100%;
-        max-height: 465px;
-        width: 100%;
-        height: auto;
-      }
-
-      .gallery,
-      .gallery-2col,
-      #gallery {
-        padding: 10px;
       }
     }
 
