@@ -11,6 +11,11 @@ def server_static(filepath):
 def index():
     return template('index')
 
+@route('/First-XI-vs-Westlake-22-07')
+def FirstXIvsWestlake():
+    return template('First-XI-vs-Westlake-22-07')
+
+
 @route('/First-V-vs-Dilworth-23-07')
 def FirstVvsDilworth():
     return template('First-V-vs-Dilworth-23-07')
