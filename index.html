@@ -378,11 +378,6 @@
             <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1747696942/Training%2015-05/b6hepju3ecaewj1dsoqv.jpg" alt="Training Cover" width="428" height="224"/>
             <div class="overlay">Training 15-05</div>
         </a>
-        
-        <a href="category-automotive" class="gallery-cover">
-            <img src="https://res.cloudinary.com/dfqreujbo/image/upload/v1738712762/Audi_2_tcjies.jpg" alt="Automotive Cover" width="428" height="224"/>
-            <div class="overlay">Automotive</div>
-        </a>
         <!-- Add more covers as needed -->
     </main>
 
@@ -418,10 +413,20 @@
         });
         });
 
-        document.addEventListener('contextmenu', function(e) {
+        // Disable right click
+        document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
 
+        // Disable dragging of images and links
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+        });
+
+        // Optional: Disable text/image selection
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
