@@ -15,14 +15,13 @@ def index():
 def FirstXIvsWestlake():
     return template('First-XI-vs-Westlake-22-07')
 
-
 @route('/First-V-vs-Dilworth-23-07')
 def FirstVvsDilworth():
     return template('First-V-vs-Dilworth-23-07')
 
-@route('/First-V-Training-14-07')
-def FirstVTraining():
-    return template('First-V-Training-14-07')
+@route('/First-V-vs-AGGS-25-07')
+def FirstVvsAGGS():
+    return template('First-V-vs-AGGS-25-07')
 
 @route('/category-automotive')
 def categoryautomotive():
